@@ -6,5 +6,10 @@ namespace TP3
         {
             InitializeComponent();
         }
+
+        void Patate()
+        {
+
+        }
     }
 }

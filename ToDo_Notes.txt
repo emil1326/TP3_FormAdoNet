@@ -24,3 +24,4 @@ quand lapp ferme fau aussi sa close la connection
 
 periodiquement check si y a des chages from other users
 
+recherche les drop down vas juste ouvrire la page avec le search par default, mais on peu encre le changer apres

@@ -1,0 +1,26 @@
+
+==> TODO <==
+
+connection windows
+	open && close
+
+search windows
+	search dropdown with options
+		classe
+		qualiter
+		nom
+	show avg price
+
+modifier quality window
+
+add equipement window ==> from search? and menustrip
+
+add class window ==> same above
+
+
+==> NOTES <==
+
+quand lapp ferme fau aussi sa close la connection
+
+periodiquement check si y a des chages from other users
+

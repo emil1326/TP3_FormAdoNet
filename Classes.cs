@@ -2,7 +2,7 @@
 
 namespace TP3
 {
-    class Connector
+    class Classes
     {
         public OracleConnection OraCon = new();
 
@@ -31,7 +31,7 @@ namespace TP3
             private set { }
         } // return true if active
 
-        public Connector()
+        public Classes()
         {
         }
 
@@ -65,5 +65,10 @@ namespace TP3
 
             return HasActiveConnection;
         }
+    }
+
+    class SearchRes
+    {
+
     }
 }

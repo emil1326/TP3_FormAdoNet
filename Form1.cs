@@ -74,7 +74,7 @@ namespace TP3
 
         #region Login
 
-        Connector Conn = new();
+        Classes Conn = new();
 
         private void AdvancedLoginOptionsCheckBox_CheckedChanged(object sender, EventArgs e) //toggle advanced connection options 
         {

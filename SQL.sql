@@ -370,3 +370,11 @@ INSERT INTO EQUIPEMENTS(
 );
 
 COMMIT;
+
+--Recherches
+
+--mode de recherche no.1
+
+SELECT nomequipement,qualite,prixdebase,equipements.idclasse,SPECIALISATION
+FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
+WHERE nomclasse='Guerrier';

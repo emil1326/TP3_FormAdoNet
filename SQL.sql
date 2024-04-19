@@ -1,5 +1,12 @@
-SELECT * FROM Equipements;
-SELECT * FROM CLASSES;
+SELECT
+    *
+FROM
+    EQUIPEMENTS;
+
+SELECT
+    *
+FROM
+    CLASSES;
 
 CREATE TABLE EQUIPEMENTS (
     IDEQUIPEMENT NUMBER(4),
@@ -374,23 +381,64 @@ COMMIT;
 --Recherches
 --a)
 --mode de recherche no.1
+--nomclasse (modify to your will)
 
-SELECT nomequipement,qualite,prixdebase,SPECIALISATION
-FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
-WHERE nomclasse='Guerrier'
-ORDER BY prixdebase ASC;
+--filtered by price ASC
+SELECT
+    NOMEQUIPEMENT,
+    QUALITE,
+    PRIXDEBASE,
+    SPECIALISATION
+FROM
+    EQUIPEMENTS
+    JOIN CLASSES
+    ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE
+WHERE
+    NOMCLASSE='Guerrier'
+ORDER BY
+    PRIXDEBASE ASC;
 
-SELECT nomequipement,qualite,prixdebase,SPECIALISATION
-FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
-WHERE nomclasse='Guerrier'
-ORDER BY prixdebase DESC;
+--filtered by price DESC
+SELECT
+    NOMEQUIPEMENT,
+    QUALITE,
+    PRIXDEBASE,
+    SPECIALISATION
+FROM
+    EQUIPEMENTS
+    JOIN CLASSES
+    ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE
+WHERE
+    NOMCLASSE='Guerrier'
+ORDER BY
+    PRIXDEBASE DESC;
 
-SELECT nomequipement,qualite,prixdebase,SPECIALISATION
-FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
-WHERE nomclasse='Guerrier'
-ORDER BY qualite ASC;
+--filtered by quality ASC
+SELECT
+    NOMEQUIPEMENT,
+    QUALITE,
+    PRIXDEBASE,
+    SPECIALISATION
+FROM
+    EQUIPEMENTS
+    JOIN CLASSES
+    ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE
+WHERE
+    NOMCLASSE='Guerrier'
+ORDER BY
+    QUALITE ASC;
 
-SELECT nomequipement,qualite,prixdebase,SPECIALISATION
-FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
-WHERE nomclasse='Guerrier'
-ORDER BY qualite DESC;
+--filtered by quality DESC
+SELECT
+    NOMEQUIPEMENT,
+    QUALITE,
+    PRIXDEBASE,
+    SPECIALISATION
+FROM
+    EQUIPEMENTS
+    JOIN CLASSES
+    ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE
+WHERE
+    NOMCLASSE='Guerrier'
+ORDER BY
+    QUALITE DESC;

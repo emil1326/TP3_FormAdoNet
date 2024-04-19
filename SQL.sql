@@ -385,6 +385,7 @@ COMMIT;
 
 --filtered by price ASC
 SELECT
+    NOMCLASSE,
     NOMEQUIPEMENT,
     QUALITE,
     PRIXDEBASE,
@@ -400,6 +401,7 @@ ORDER BY
 
 --filtered by price DESC
 SELECT
+    NOMCLASSE
     NOMEQUIPEMENT,
     QUALITE,
     PRIXDEBASE,
@@ -415,6 +417,7 @@ ORDER BY
 
 --filtered by quality ASC
 SELECT
+    NOMCLASSE,
     NOMEQUIPEMENT,
     QUALITE,
     PRIXDEBASE,
@@ -430,6 +433,7 @@ ORDER BY
 
 --filtered by quality DESC
 SELECT
+    NOMCLASSE,
     NOMEQUIPEMENT,
     QUALITE,
     PRIXDEBASE,

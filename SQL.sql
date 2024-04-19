@@ -431,6 +431,7 @@ ORDER BY
     QUALITE ASC;
 
 --filtered by quality DESC
+
 SELECT
     NOMCLASSE,
     NOMEQUIPEMENT,

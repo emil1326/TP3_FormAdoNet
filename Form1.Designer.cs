@@ -40,6 +40,8 @@
             ajouterToolStripMenuItem = new ToolStripMenuItem();
             nouvelleClasseToolStripMenuItem = new ToolStripMenuItem();
             nouvelleItemToolStripMenuItem = new ToolStripMenuItem();
+            modifyToolStripMenuItem = new ToolStripMenuItem();
+            qualityToolStripMenuItem = new ToolStripMenuItem();
             menuPrincipaleToolStripMenuItem = new ToolStripMenuItem();
             OpenConnPannel = new GroupBox();
             ConnectionResult = new Label();
@@ -59,8 +61,6 @@
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
             label3 = new Label();
-            modifyToolStripMenuItem = new ToolStripMenuItem();
-            qualityToolStripMenuItem = new ToolStripMenuItem();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
@@ -151,6 +151,20 @@
             nouvelleItemToolStripMenuItem.Size = new Size(157, 22);
             nouvelleItemToolStripMenuItem.Text = "Nouvelle item";
             nouvelleItemToolStripMenuItem.Click += nouvelleItemToolStripMenuItem_Click;
+            // 
+            // modifyToolStripMenuItem
+            // 
+            modifyToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { qualityToolStripMenuItem });
+            modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
+            modifyToolStripMenuItem.Size = new Size(57, 20);
+            modifyToolStripMenuItem.Text = "Modify";
+            // 
+            // qualityToolStripMenuItem
+            // 
+            qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
+            qualityToolStripMenuItem.Size = new Size(112, 22);
+            qualityToolStripMenuItem.Text = "Quality";
+            qualityToolStripMenuItem.Click += qualityToolStripMenuItem_Click;
             // 
             // menuPrincipaleToolStripMenuItem
             // 
@@ -262,6 +276,7 @@
             UserNameTextBox.Name = "UserNameTextBox";
             UserNameTextBox.Size = new Size(208, 23);
             UserNameTextBox.TabIndex = 2;
+            UserNameTextBox.Text = "c##DevauchE";
             // 
             // label2
             // 
@@ -335,20 +350,6 @@
             label3.Size = new Size(237, 30);
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
-            // 
-            // modifyToolStripMenuItem
-            // 
-            modifyToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { qualityToolStripMenuItem });
-            modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            modifyToolStripMenuItem.Size = new Size(57, 20);
-            modifyToolStripMenuItem.Text = "Modify";
-            // 
-            // qualityToolStripMenuItem
-            // 
-            qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
-            qualityToolStripMenuItem.Size = new Size(180, 22);
-            qualityToolStripMenuItem.Text = "Quality";
-            qualityToolStripMenuItem.Click += qualityToolStripMenuItem_Click;
             // 
             // Form1
             // 

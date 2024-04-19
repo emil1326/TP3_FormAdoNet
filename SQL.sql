@@ -372,9 +372,25 @@ INSERT INTO EQUIPEMENTS(
 COMMIT;
 
 --Recherches
-
+--a)
 --mode de recherche no.1
 
-SELECT nomequipement,qualite,prixdebase,equipements.idclasse,SPECIALISATION
+SELECT nomequipement,qualite,prixdebase,SPECIALISATION
 FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
-WHERE nomclasse='Guerrier';
+WHERE nomclasse='Guerrier'
+ORDER BY prixdebase ASC;
+
+SELECT nomequipement,qualite,prixdebase,SPECIALISATION
+FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
+WHERE nomclasse='Guerrier'
+ORDER BY prixdebase DESC;
+
+SELECT nomequipement,qualite,prixdebase,SPECIALISATION
+FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
+WHERE nomclasse='Guerrier'
+ORDER BY qualite ASC;
+
+SELECT nomequipement,qualite,prixdebase,SPECIALISATION
+FROM equipements JOIN classes on equipements.idclasse=classes.idclasse
+WHERE nomclasse='Guerrier'
+ORDER BY qualite DESC;

@@ -513,3 +513,30 @@ WHERE
     QUALITE=20
 ORDER BY
     PRIXDEBASE ASC;
+
+--research mode no.3
+
+--research by  the name or the starting of the names of an Equipements
+
+SELECT
+    NOMCLASSE,
+    NOMEQUIPEMENT,
+    QUALITE,
+    PRIXDEBASE,
+    SPECIALISATION
+FROM
+    EQUIPEMENTS
+    JOIN CLASSES
+    ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE
+WHERE
+    NOMEQUIPEMENT='Hache de Gimli' OR NOMEQUIPEMENT LIKE'Hache'
+ORDER BY
+    PRIXDEBASE ASC;
+
+--Prix moyen des Equipements
+
+SELECT nomclasse,ROUND(AVG(prixdebase),2) AS prix_moyen_dune_classe
+FROM EQUIPEMENTS
+    JOIN CLASSES
+    ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE
+    GROUP BY NOMCLASSE;

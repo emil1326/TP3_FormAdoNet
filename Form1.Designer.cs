@@ -59,6 +59,8 @@
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
             label3 = new Label();
+            modifyToolStripMenuItem = new ToolStripMenuItem();
+            qualityToolStripMenuItem = new ToolStripMenuItem();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
@@ -68,7 +70,7 @@
             // 
             // MyMainMenuStrip
             // 
-            MyMainMenuStrip.Items.AddRange(new ToolStripItem[] { connectionToolStripMenuItem, rechercheToolStripMenuItem, ajouterToolStripMenuItem, menuPrincipaleToolStripMenuItem });
+            MyMainMenuStrip.Items.AddRange(new ToolStripItem[] { connectionToolStripMenuItem, rechercheToolStripMenuItem, ajouterToolStripMenuItem, modifyToolStripMenuItem, menuPrincipaleToolStripMenuItem });
             MyMainMenuStrip.Location = new Point(0, 0);
             MyMainMenuStrip.Name = "MyMainMenuStrip";
             MyMainMenuStrip.Size = new Size(800, 24);
@@ -87,6 +89,7 @@
             ouvrirUneConnectionToolStripMenuItem.Name = "ouvrirUneConnectionToolStripMenuItem";
             ouvrirUneConnectionToolStripMenuItem.Size = new Size(204, 22);
             ouvrirUneConnectionToolStripMenuItem.Text = "Ouvrir une connection";
+            ouvrirUneConnectionToolStripMenuItem.Click += ouvrirUneConnectionToolStripMenuItem_Click;
             // 
             // fermerLaConnectionToolStripMenuItem
             // 
@@ -110,20 +113,23 @@
             // parNomToolStripMenuItem
             // 
             parNomToolStripMenuItem.Name = "parNomToolStripMenuItem";
-            parNomToolStripMenuItem.Size = new Size(180, 22);
+            parNomToolStripMenuItem.Size = new Size(119, 22);
             parNomToolStripMenuItem.Text = "Par nom";
+            parNomToolStripMenuItem.Click += parNomToolStripMenuItem_Click;
             // 
             // cToolStripMenuItem
             // 
             cToolStripMenuItem.Name = "cToolStripMenuItem";
-            cToolStripMenuItem.Size = new Size(180, 22);
+            cToolStripMenuItem.Size = new Size(119, 22);
             cToolStripMenuItem.Text = "Classe";
+            cToolStripMenuItem.Click += cToolStripMenuItem_Click;
             // 
             // qualiterToolStripMenuItem
             // 
             qualiterToolStripMenuItem.Name = "qualiterToolStripMenuItem";
-            qualiterToolStripMenuItem.Size = new Size(180, 22);
+            qualiterToolStripMenuItem.Size = new Size(119, 22);
             qualiterToolStripMenuItem.Text = "Qualiter";
+            qualiterToolStripMenuItem.Click += qualiterToolStripMenuItem_Click;
             // 
             // ajouterToolStripMenuItem
             // 
@@ -137,18 +143,21 @@
             nouvelleClasseToolStripMenuItem.Name = "nouvelleClasseToolStripMenuItem";
             nouvelleClasseToolStripMenuItem.Size = new Size(157, 22);
             nouvelleClasseToolStripMenuItem.Text = "Nouvelle Classe";
+            nouvelleClasseToolStripMenuItem.Click += nouvelleClasseToolStripMenuItem_Click;
             // 
             // nouvelleItemToolStripMenuItem
             // 
             nouvelleItemToolStripMenuItem.Name = "nouvelleItemToolStripMenuItem";
             nouvelleItemToolStripMenuItem.Size = new Size(157, 22);
             nouvelleItemToolStripMenuItem.Text = "Nouvelle item";
+            nouvelleItemToolStripMenuItem.Click += nouvelleItemToolStripMenuItem_Click;
             // 
             // menuPrincipaleToolStripMenuItem
             // 
             menuPrincipaleToolStripMenuItem.Name = "menuPrincipaleToolStripMenuItem";
             menuPrincipaleToolStripMenuItem.Size = new Size(105, 20);
             menuPrincipaleToolStripMenuItem.Text = "Menu principale";
+            menuPrincipaleToolStripMenuItem.Click += menuPrincipaleToolStripMenuItem_Click;
             // 
             // OpenConnPannel
             // 
@@ -327,6 +336,20 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
+            // modifyToolStripMenuItem
+            // 
+            modifyToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { qualityToolStripMenuItem });
+            modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
+            modifyToolStripMenuItem.Size = new Size(57, 20);
+            modifyToolStripMenuItem.Text = "Modify";
+            // 
+            // qualityToolStripMenuItem
+            // 
+            qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
+            qualityToolStripMenuItem.Size = new Size(180, 22);
+            qualityToolStripMenuItem.Text = "Quality";
+            qualityToolStripMenuItem.Click += qualityToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -388,5 +411,7 @@
         private GroupBox HelloWind;
         private Label label3;
         private Label ConnectionResult;
+        private ToolStripMenuItem modifyToolStripMenuItem;
+        private ToolStripMenuItem qualityToolStripMenuItem;
     }
 }

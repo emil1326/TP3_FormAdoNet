@@ -25,3 +25,23 @@ quand lapp ferme fau aussi sa close la connection
 periodiquement check si y a des chages from other users
 
 recherche les drop down vas juste ouvrire la page avec le search par default, mais on peu encre le changer apres
+
+
+
+
+
+==> TO REMEMBER <==
+
+pages ==>	
+		connection == 1
+		
+		recherche par nom == 2	
+		recherche par classe == 3
+		recherche par qualiter == 4
+
+		nouvelle classe == 5
+		nouvelle item == 6
+
+		modQuality window == 8
+
+		main menu == 7

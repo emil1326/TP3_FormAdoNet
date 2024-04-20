@@ -44,7 +44,7 @@ namespace TP3
             SwitchToPage(7);
         }
 
-        private void qualityToolStripMenuItem_Click(object sender, EventArgs e)
+        private void existingItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(8);
         }
@@ -62,7 +62,7 @@ namespace TP3
                 AddClassWind,
                 AddEquipWind,
                 HelloWind,
-                ModQualWind,
+                ModExistingItemWind,
             ];
             foreach (GroupBox GB in Pages)
                 GB.Visible = false;
@@ -74,7 +74,7 @@ namespace TP3
 
         #region Login
 
-        Classes Conn = new();
+        readonly ConnectionManager Conn = new();
 
         private void AdvancedLoginOptionsCheckBox_CheckedChanged(object sender, EventArgs e) //toggle advanced connection options 
         {

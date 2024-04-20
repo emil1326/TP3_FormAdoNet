@@ -41,7 +41,7 @@
             nouvelleClasseToolStripMenuItem = new ToolStripMenuItem();
             nouvelleItemToolStripMenuItem = new ToolStripMenuItem();
             modifyToolStripMenuItem = new ToolStripMenuItem();
-            qualityToolStripMenuItem = new ToolStripMenuItem();
+            existingItemToolStripMenuItem = new ToolStripMenuItem();
             menuPrincipaleToolStripMenuItem = new ToolStripMenuItem();
             OpenConnPannel = new GroupBox();
             ConnectionResult = new Label();
@@ -56,7 +56,7 @@
             label2 = new Label();
             label1 = new Label();
             ResearchPannel = new GroupBox();
-            ModQualWind = new GroupBox();
+            ModExistingItemWind = new GroupBox();
             AddEquipWind = new GroupBox();
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
@@ -154,17 +154,17 @@
             // 
             // modifyToolStripMenuItem
             // 
-            modifyToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { qualityToolStripMenuItem });
+            modifyToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { existingItemToolStripMenuItem });
             modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
             modifyToolStripMenuItem.Size = new Size(57, 20);
             modifyToolStripMenuItem.Text = "Modify";
             // 
-            // qualityToolStripMenuItem
+            // existingItemToolStripMenuItem
             // 
-            qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
-            qualityToolStripMenuItem.Size = new Size(112, 22);
-            qualityToolStripMenuItem.Text = "Quality";
-            qualityToolStripMenuItem.Click += qualityToolStripMenuItem_Click;
+            existingItemToolStripMenuItem.Name = "existingItemToolStripMenuItem";
+            existingItemToolStripMenuItem.Size = new Size(180, 22);
+            existingItemToolStripMenuItem.Text = "Item existant";
+            existingItemToolStripMenuItem.Click += existingItemToolStripMenuItem_Click;
             // 
             // menuPrincipaleToolStripMenuItem
             // 
@@ -305,14 +305,14 @@
             ResearchPannel.TabStop = false;
             ResearchPannel.Text = "Recherche";
             // 
-            // ModQualWind
+            // ModExistingItemWind
             // 
-            ModQualWind.Location = new Point(12, 27);
-            ModQualWind.Name = "ModQualWind";
-            ModQualWind.Size = new Size(776, 411);
-            ModQualWind.TabIndex = 0;
-            ModQualWind.TabStop = false;
-            ModQualWind.Text = "Modifier la qualiter";
+            ModExistingItemWind.Location = new Point(12, 27);
+            ModExistingItemWind.Name = "ModExistingItemWind";
+            ModExistingItemWind.Size = new Size(776, 411);
+            ModExistingItemWind.TabIndex = 0;
+            ModExistingItemWind.TabStop = false;
+            ModExistingItemWind.Text = "Modifier un item existant";
             // 
             // AddEquipWind
             // 
@@ -361,7 +361,7 @@
             Controls.Add(HelloWind);
             Controls.Add(AddClassWind);
             Controls.Add(AddEquipWind);
-            Controls.Add(ModQualWind);
+            Controls.Add(ModExistingItemWind);
             Controls.Add(ResearchPannel);
             Name = "Form1";
             Text = "E&M Equipement Manager";
@@ -395,7 +395,7 @@
         private ToolStripMenuItem qualiterToolStripMenuItem;
         private GroupBox OpenConnPannel;
         private GroupBox ResearchPannel;
-        private GroupBox ModQualWind;
+        private GroupBox ModExistingItemWind;
         private GroupBox AddEquipWind;
         private GroupBox AddClassWind;
         private GroupBox groupBox1;
@@ -413,6 +413,6 @@
         private Label label3;
         private Label ConnectionResult;
         private ToolStripMenuItem modifyToolStripMenuItem;
-        private ToolStripMenuItem qualityToolStripMenuItem;
+        private ToolStripMenuItem existingItemToolStripMenuItem;
     }
 }

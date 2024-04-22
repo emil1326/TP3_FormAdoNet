@@ -57,11 +57,6 @@
             label1 = new Label();
             ResearchPannel = new GroupBox();
             dataGridView1 = new DataGridView();
-            Équipement = new DataGridViewTextBoxColumn();
-            DGNomClasseCol = new DataGridViewTextBoxColumn();
-            DGQualiteCol = new DataGridViewTextBoxColumn();
-            DGPrixBaseCol = new DataGridViewTextBoxColumn();
-            DGSpecCol = new DataGridViewTextBoxColumn();
             SearchButton = new Button();
             FilterByGB = new GroupBox();
             label6 = new Label();
@@ -78,6 +73,11 @@
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
             label3 = new Label();
+            DGNomEquiCol = new DataGridViewTextBoxColumn();
+            DGNomClasseCol = new DataGridViewTextBoxColumn();
+            DGQualiteCol = new DataGridViewTextBoxColumn();
+            DGPrixBaseCol = new DataGridViewTextBoxColumn();
+            DGSpecCol = new DataGridViewTextBoxColumn();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
@@ -332,40 +332,11 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Équipement, DGNomClasseCol, DGQualiteCol, DGPrixBaseCol, DGSpecCol });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { DGNomEquiCol, DGNomClasseCol, DGQualiteCol, DGPrixBaseCol, DGSpecCol });
             dataGridView1.Location = new Point(57, 72);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(535, 331);
             dataGridView1.TabIndex = 9;
-            // 
-            // Équipement
-            // 
-            Équipement.HeaderText = "Nom de l'équipement";
-            Équipement.Name = "Équipement";
-            // 
-            // DGNomClasseCol
-            // 
-            DGNomClasseCol.HeaderText = "Nom de la classe";
-            DGNomClasseCol.Name = "DGNomClasseCol";
-            DGNomClasseCol.ReadOnly = true;
-            // 
-            // DGQualiteCol
-            // 
-            DGQualiteCol.HeaderText = "Qualité";
-            DGQualiteCol.Name = "DGQualiteCol";
-            DGQualiteCol.ReadOnly = true;
-            // 
-            // DGPrixBaseCol
-            // 
-            DGPrixBaseCol.HeaderText = "Prix de base";
-            DGPrixBaseCol.Name = "DGPrixBaseCol";
-            DGPrixBaseCol.ReadOnly = true;
-            // 
-            // DGSpecCol
-            // 
-            DGSpecCol.HeaderText = "Spécialisation";
-            DGSpecCol.Name = "DGSpecCol";
-            DGSpecCol.ReadOnly = true;
             // 
             // SearchButton
             // 
@@ -514,6 +485,36 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
+            // DGNomEquiCol
+            // 
+            DGNomEquiCol.HeaderText = "Nom de l'équipement";
+            DGNomEquiCol.Name = "DGNomEquiCol";
+            DGNomEquiCol.ReadOnly = true;
+            // 
+            // DGNomClasseCol
+            // 
+            DGNomClasseCol.HeaderText = "Nom de la classe";
+            DGNomClasseCol.Name = "DGNomClasseCol";
+            DGNomClasseCol.ReadOnly = true;
+            // 
+            // DGQualiteCol
+            // 
+            DGQualiteCol.HeaderText = "Qualité";
+            DGQualiteCol.Name = "DGQualiteCol";
+            DGQualiteCol.ReadOnly = true;
+            // 
+            // DGPrixBaseCol
+            // 
+            DGPrixBaseCol.HeaderText = "Prix de base";
+            DGPrixBaseCol.Name = "DGPrixBaseCol";
+            DGPrixBaseCol.ReadOnly = true;
+            // 
+            // DGSpecCol
+            // 
+            DGSpecCol.HeaderText = "Spécialisation";
+            DGSpecCol.Name = "DGSpecCol";
+            DGSpecCol.ReadOnly = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -594,7 +595,7 @@
         private Label label6;
         private Button SearchButton;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Équipement;
+        private DataGridViewTextBoxColumn DGNomEquiCol;
         private DataGridViewTextBoxColumn DGNomClasseCol;
         private DataGridViewTextBoxColumn DGQualiteCol;
         private DataGridViewTextBoxColumn DGPrixBaseCol;

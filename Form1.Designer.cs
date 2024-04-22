@@ -61,10 +61,13 @@
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
             label3 = new Label();
+            textBox1 = new TextBox();
+            label4 = new Label();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
             groupBox1.SuspendLayout();
+            ResearchPannel.SuspendLayout();
             HelloWind.SuspendLayout();
             SuspendLayout();
             // 
@@ -298,6 +301,8 @@
             // 
             // ResearchPannel
             // 
+            ResearchPannel.Controls.Add(label4);
+            ResearchPannel.Controls.Add(textBox1);
             ResearchPannel.Location = new Point(12, 27);
             ResearchPannel.Name = "ResearchPannel";
             ResearchPannel.Size = new Size(776, 411);
@@ -351,18 +356,34 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(6, 41);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(380, 23);
+            textBox1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 19);
+            label4.Name = "label4";
+            label4.Size = new Size(62, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Recherche";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(MyMainMenuStrip);
+            Controls.Add(ResearchPannel);
             Controls.Add(OpenConnPannel);
             Controls.Add(HelloWind);
             Controls.Add(AddClassWind);
             Controls.Add(AddEquipWind);
             Controls.Add(ModExistingItemWind);
-            Controls.Add(ResearchPannel);
             Name = "Form1";
             Text = "E&M Equipement Manager";
             MyMainMenuStrip.ResumeLayout(false);
@@ -373,6 +394,8 @@
             AdvancedOptions.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ResearchPannel.ResumeLayout(false);
+            ResearchPannel.PerformLayout();
             HelloWind.ResumeLayout(false);
             HelloWind.PerformLayout();
             ResumeLayout(false);
@@ -414,5 +437,7 @@
         private Label ConnectionResult;
         private ToolStripMenuItem modifyToolStripMenuItem;
         private ToolStripMenuItem existingItemToolStripMenuItem;
+        private Label label4;
+        private TextBox textBox1;
     }
 }

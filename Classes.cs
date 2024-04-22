@@ -89,7 +89,7 @@ namespace TP3
             private set { }
         }
 
-        public DataSet DS;
+        public DataTable DT = new();
 
         public void AddNewLine(string nom, string NClasse, int quality, float prixBase, string Specialisation)
         {
@@ -137,6 +137,8 @@ namespace TP3
                     return AddNewLines(reader);
                 }
             }
+
+            DT.Columns[1] = "e";
         }
 
         public void ReorderBy(int index, bool asc)

@@ -62,31 +62,29 @@
             DGQualiteCol = new DataGridViewTextBoxColumn();
             DGPrixBaseCol = new DataGridViewTextBoxColumn();
             DGSpecCol = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            groupBox2 = new GroupBox();
+            SearchButton = new Button();
+            FilterByGB = new GroupBox();
             label6 = new Label();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            QualiterTBmax = new TextBox();
+            QualityTBMin = new TextBox();
+            PrixTBMax = new TextBox();
+            PrixTBMin = new TextBox();
             label5 = new Label();
             label4 = new Label();
             comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
+            SearchBar = new TextBox();
             ModExistingItemWind = new GroupBox();
             AddEquipWind = new GroupBox();
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
             label3 = new Label();
-            textBox1 = new TextBox();
-            label4 = new Label();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
             groupBox1.SuspendLayout();
             ResearchPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox2.SuspendLayout();
+            FilterByGB.SuspendLayout();
             HelloWind.SuspendLayout();
             SuspendLayout();
             // 
@@ -321,9 +319,9 @@
             // ResearchPannel
             // 
             ResearchPannel.Controls.Add(dataGridView1);
-            ResearchPannel.Controls.Add(button1);
-            ResearchPannel.Controls.Add(groupBox2);
-            ResearchPannel.Controls.Add(textBox1);
+            ResearchPannel.Controls.Add(SearchButton);
+            ResearchPannel.Controls.Add(FilterByGB);
+            ResearchPannel.Controls.Add(SearchBar);
             ResearchPannel.Location = new Point(12, 27);
             ResearchPannel.Name = "ResearchPannel";
             ResearchPannel.Size = new Size(776, 411);
@@ -369,31 +367,31 @@
             DGSpecCol.Name = "DGSpecCol";
             DGSpecCol.ReadOnly = true;
             // 
-            // button1
+            // SearchButton
             // 
-            button1.Location = new Point(471, 33);
-            button1.Name = "button1";
-            button1.Size = new Size(121, 24);
-            button1.TabIndex = 8;
-            button1.Text = "Rechercher";
-            button1.UseVisualStyleBackColor = true;
+            SearchButton.Location = new Point(471, 33);
+            SearchButton.Name = "SearchButton";
+            SearchButton.Size = new Size(121, 24);
+            SearchButton.TabIndex = 8;
+            SearchButton.Text = "Rechercher";
+            SearchButton.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // FilterByGB
             // 
-            groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(textBox4);
-            groupBox2.Controls.Add(textBox5);
-            groupBox2.Controls.Add(textBox3);
-            groupBox2.Controls.Add(textBox2);
-            groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(comboBox1);
-            groupBox2.Location = new Point(625, 19);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(134, 384);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Filtrer par";
+            FilterByGB.Controls.Add(label6);
+            FilterByGB.Controls.Add(QualiterTBmax);
+            FilterByGB.Controls.Add(QualityTBMin);
+            FilterByGB.Controls.Add(PrixTBMax);
+            FilterByGB.Controls.Add(PrixTBMin);
+            FilterByGB.Controls.Add(label5);
+            FilterByGB.Controls.Add(label4);
+            FilterByGB.Controls.Add(comboBox1);
+            FilterByGB.Location = new Point(625, 19);
+            FilterByGB.Name = "FilterByGB";
+            FilterByGB.Size = new Size(134, 384);
+            FilterByGB.TabIndex = 1;
+            FilterByGB.TabStop = false;
+            FilterByGB.Text = "Filtrer par";
             // 
             // label6
             // 
@@ -404,37 +402,37 @@
             label6.TabIndex = 7;
             label6.Text = "Qualité";
             // 
-            // textBox4
+            // QualiterTBmax
             // 
-            textBox4.Location = new Point(72, 182);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Max";
-            textBox4.Size = new Size(58, 23);
-            textBox4.TabIndex = 6;
+            QualiterTBmax.Location = new Point(72, 182);
+            QualiterTBmax.Name = "QualiterTBmax";
+            QualiterTBmax.PlaceholderText = "Max";
+            QualiterTBmax.Size = new Size(58, 23);
+            QualiterTBmax.TabIndex = 6;
             // 
-            // textBox5
+            // QualityTBMin
             // 
-            textBox5.Location = new Point(8, 182);
-            textBox5.Name = "textBox5";
-            textBox5.PlaceholderText = "Min";
-            textBox5.Size = new Size(58, 23);
-            textBox5.TabIndex = 5;
+            QualityTBMin.Location = new Point(8, 182);
+            QualityTBMin.Name = "QualityTBMin";
+            QualityTBMin.PlaceholderText = "Min";
+            QualityTBMin.Size = new Size(58, 23);
+            QualityTBMin.TabIndex = 5;
             // 
-            // textBox3
+            // PrixTBMax
             // 
-            textBox3.Location = new Point(72, 113);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "$ Max";
-            textBox3.Size = new Size(58, 23);
-            textBox3.TabIndex = 4;
+            PrixTBMax.Location = new Point(72, 113);
+            PrixTBMax.Name = "PrixTBMax";
+            PrixTBMax.PlaceholderText = "$ Max";
+            PrixTBMax.Size = new Size(58, 23);
+            PrixTBMax.TabIndex = 4;
             // 
-            // textBox2
+            // PrixTBMin
             // 
-            textBox2.Location = new Point(7, 113);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "$ Min";
-            textBox2.Size = new Size(58, 23);
-            textBox2.TabIndex = 3;
+            PrixTBMin.Location = new Point(7, 113);
+            PrixTBMin.Name = "PrixTBMin";
+            PrixTBMin.PlaceholderText = "$ Min";
+            PrixTBMin.Size = new Size(58, 23);
+            PrixTBMin.TabIndex = 3;
             // 
             // label5
             // 
@@ -448,11 +446,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(7, 19);
+            label4.Location = new Point(6, 19);
             label4.Name = "label4";
-            label4.Size = new Size(102, 15);
+            label4.Size = new Size(62, 15);
             label4.TabIndex = 1;
-            label4.Text = "Type de recherche";
+            label4.Text = "Recherche";
             // 
             // comboBox1
             // 
@@ -463,12 +461,12 @@
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 0;
             // 
-            // textBox1
+            // SearchBar
             // 
-            textBox1.Location = new Point(57, 33);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(408, 23);
-            textBox1.TabIndex = 0;
+            SearchBar.Location = new Point(6, 41);
+            SearchBar.Name = "SearchBar";
+            SearchBar.Size = new Size(380, 23);
+            SearchBar.TabIndex = 0;
             // 
             // ModExistingItemWind
             // 
@@ -516,22 +514,6 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(6, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(380, 23);
-            textBox1.TabIndex = 0;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(6, 19);
-            label4.Name = "label4";
-            label4.Size = new Size(62, 15);
-            label4.TabIndex = 1;
-            label4.Text = "Recherche";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -557,8 +539,8 @@
             ResearchPannel.ResumeLayout(false);
             ResearchPannel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            FilterByGB.ResumeLayout(false);
+            FilterByGB.PerformLayout();
             HelloWind.ResumeLayout(false);
             HelloWind.PerformLayout();
             ResumeLayout(false);
@@ -600,17 +582,17 @@
         private Label ConnectionResult;
         private ToolStripMenuItem modifyToolStripMenuItem;
         private ToolStripMenuItem existingItemToolStripMenuItem;
-        private GroupBox groupBox2;
-        private TextBox textBox1;
+        private GroupBox FilterByGB;
+        private TextBox SearchBar;
         private ComboBox comboBox1;
         private Label label4;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox PrixTBMax;
+        private TextBox PrixTBMin;
         private Label label5;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox QualiterTBmax;
+        private TextBox QualityTBMin;
         private Label label6;
-        private Button button1;
+        private Button SearchButton;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Équipement;
         private DataGridViewTextBoxColumn DGNomClasseCol;

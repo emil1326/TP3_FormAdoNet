@@ -1,4 +1,5 @@
 ﻿using Oracle.ManagedDataAccess.Client;
+using System.Data;
 
 namespace TP3
 {
@@ -87,6 +88,8 @@ namespace TP3
             }
             private set { }
         }
+
+        public DataSet DS;
 
         public void AddNewLine(string nom, string NClasse, int quality, float prixBase, string Specialisation)
         {
@@ -188,5 +191,14 @@ namespace TP3
         public int Quality = quality;
         public float PrixBase = prixBase;
         public string Specialisation = specialisation;
+    }
+
+    class DS : DataSet
+    {
+        public DS()
+        {
+
+        }
+
     }
 }

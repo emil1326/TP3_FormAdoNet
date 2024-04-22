@@ -56,8 +56,8 @@
             label2 = new Label();
             label1 = new Label();
             ResearchPannel = new GroupBox();
+            dataGridView2 = new DataGridView();
             SearchErrTxt = new Label();
-            dataGridView1 = new DataGridView();
             SearchButton = new Button();
             FilterByGB = new GroupBox();
             label6 = new Label();
@@ -74,17 +74,12 @@
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
             label3 = new Label();
-            DGNomEquipCol = new DataGridViewTextBoxColumn();
-            DGNomClasseCol = new DataGridViewTextBoxColumn();
-            DGQualiteCol = new DataGridViewTextBoxColumn();
-            DGPrixBaseCol = new DataGridViewTextBoxColumn();
-            DGSpecCol = new DataGridViewTextBoxColumn();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
             groupBox1.SuspendLayout();
             ResearchPannel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             FilterByGB.SuspendLayout();
             HelloWind.SuspendLayout();
             SuspendLayout();
@@ -319,8 +314,8 @@
             // 
             // ResearchPannel
             // 
+            ResearchPannel.Controls.Add(dataGridView2);
             ResearchPannel.Controls.Add(SearchErrTxt);
-            ResearchPannel.Controls.Add(dataGridView1);
             ResearchPannel.Controls.Add(SearchButton);
             ResearchPannel.Controls.Add(FilterByGB);
             ResearchPannel.Controls.Add(SearchBar);
@@ -331,27 +326,26 @@
             ResearchPannel.TabStop = false;
             ResearchPannel.Text = "Recherche";
             // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(6, 52);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.Size = new Size(554, 351);
+            dataGridView2.TabIndex = 11;
+            // 
             // SearchErrTxt
             // 
             SearchErrTxt.AutoSize = true;
-            SearchErrTxt.Location = new Point(390, 14);
+            SearchErrTxt.Location = new Point(566, 52);
             SearchErrTxt.Name = "SearchErrTxt";
-            SearchErrTxt.Size = new Size(38, 15);
+            SearchErrTxt.Size = new Size(51, 15);
             SearchErrTxt.TabIndex = 10;
-            SearchErrTxt.Text = "label7";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { DGNomEquipCol, DGNomClasseCol, DGQualiteCol, DGPrixBaseCol, DGSpecCol });
-            dataGridView1.Location = new Point(57, 72);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(535, 331);
-            dataGridView1.TabIndex = 9;
+            SearchErrTxt.Text = "No error";
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(471, 33);
+            SearchButton.Location = new Point(498, 22);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new Size(121, 24);
             SearchButton.TabIndex = 8;
@@ -446,9 +440,9 @@
             // 
             // SearchBar
             // 
-            SearchBar.Location = new Point(6, 41);
+            SearchBar.Location = new Point(6, 22);
             SearchBar.Name = "SearchBar";
-            SearchBar.Size = new Size(380, 23);
+            SearchBar.Size = new Size(486, 23);
             SearchBar.TabIndex = 0;
             // 
             // ModExistingItemWind
@@ -497,31 +491,6 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
-            // DGNomEquipCol
-            // 
-            DGNomEquipCol.HeaderText = "Nom de l'équipement";
-            DGNomEquipCol.Name = "DGNomEquipCol";
-            // 
-            // DGNomClasseCol
-            // 
-            DGNomClasseCol.HeaderText = "Nom de la classe";
-            DGNomClasseCol.Name = "DGNomClasseCol";
-            // 
-            // DGQualiteCol
-            // 
-            DGQualiteCol.HeaderText = "Qualité";
-            DGQualiteCol.Name = "DGQualiteCol";
-            // 
-            // DGPrixBaseCol
-            // 
-            DGPrixBaseCol.HeaderText = "Prix de base";
-            DGPrixBaseCol.Name = "DGPrixBaseCol";
-            // 
-            // DGSpecCol
-            // 
-            DGSpecCol.HeaderText = "Spécialisation";
-            DGSpecCol.Name = "DGSpecCol";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -546,7 +515,7 @@
             groupBox1.PerformLayout();
             ResearchPannel.ResumeLayout(false);
             ResearchPannel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             FilterByGB.ResumeLayout(false);
             FilterByGB.PerformLayout();
             HelloWind.ResumeLayout(false);
@@ -601,12 +570,7 @@
         private TextBox QualityTBMin;
         private Label label6;
         private Button SearchButton;
-        private DataGridView dataGridView1;
         private Label SearchErrTxt;
-        private DataGridViewTextBoxColumn DGNomEquipCol;
-        private DataGridViewTextBoxColumn DGNomClasseCol;
-        private DataGridViewTextBoxColumn DGQualiteCol;
-        private DataGridViewTextBoxColumn DGPrixBaseCol;
-        private DataGridViewTextBoxColumn DGSpecCol;
+        private DataGridView dataGridView2;
     }
 }

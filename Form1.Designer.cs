@@ -56,6 +56,23 @@
             label2 = new Label();
             label1 = new Label();
             ResearchPannel = new GroupBox();
+            dataGridView1 = new DataGridView();
+            Équipement = new DataGridViewTextBoxColumn();
+            DGNomClasseCol = new DataGridViewTextBoxColumn();
+            DGQualiteCol = new DataGridViewTextBoxColumn();
+            DGPrixBaseCol = new DataGridViewTextBoxColumn();
+            DGSpecCol = new DataGridViewTextBoxColumn();
+            button1 = new Button();
+            groupBox2 = new GroupBox();
+            label6 = new Label();
+            textBox4 = new TextBox();
+            textBox5 = new TextBox();
+            textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
+            textBox1 = new TextBox();
             ModExistingItemWind = new GroupBox();
             AddEquipWind = new GroupBox();
             AddClassWind = new GroupBox();
@@ -68,6 +85,8 @@
             AdvancedOptions.SuspendLayout();
             groupBox1.SuspendLayout();
             ResearchPannel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox2.SuspendLayout();
             HelloWind.SuspendLayout();
             SuspendLayout();
             // 
@@ -165,7 +184,7 @@
             // existingItemToolStripMenuItem
             // 
             existingItemToolStripMenuItem.Name = "existingItemToolStripMenuItem";
-            existingItemToolStripMenuItem.Size = new Size(180, 22);
+            existingItemToolStripMenuItem.Size = new Size(142, 22);
             existingItemToolStripMenuItem.Text = "Item existant";
             existingItemToolStripMenuItem.Click += existingItemToolStripMenuItem_Click;
             // 
@@ -301,7 +320,9 @@
             // 
             // ResearchPannel
             // 
-            ResearchPannel.Controls.Add(label4);
+            ResearchPannel.Controls.Add(dataGridView1);
+            ResearchPannel.Controls.Add(button1);
+            ResearchPannel.Controls.Add(groupBox2);
             ResearchPannel.Controls.Add(textBox1);
             ResearchPannel.Location = new Point(12, 27);
             ResearchPannel.Name = "ResearchPannel";
@@ -309,6 +330,145 @@
             ResearchPannel.TabIndex = 0;
             ResearchPannel.TabStop = false;
             ResearchPannel.Text = "Recherche";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Équipement, DGNomClasseCol, DGQualiteCol, DGPrixBaseCol, DGSpecCol });
+            dataGridView1.Location = new Point(57, 72);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(535, 331);
+            dataGridView1.TabIndex = 9;
+            // 
+            // Équipement
+            // 
+            Équipement.HeaderText = "Nom de l'équipement";
+            Équipement.Name = "Équipement";
+            // 
+            // DGNomClasseCol
+            // 
+            DGNomClasseCol.HeaderText = "Nom de la classe";
+            DGNomClasseCol.Name = "DGNomClasseCol";
+            DGNomClasseCol.ReadOnly = true;
+            // 
+            // DGQualiteCol
+            // 
+            DGQualiteCol.HeaderText = "Qualité";
+            DGQualiteCol.Name = "DGQualiteCol";
+            DGQualiteCol.ReadOnly = true;
+            // 
+            // DGPrixBaseCol
+            // 
+            DGPrixBaseCol.HeaderText = "Prix de base";
+            DGPrixBaseCol.Name = "DGPrixBaseCol";
+            DGPrixBaseCol.ReadOnly = true;
+            // 
+            // DGSpecCol
+            // 
+            DGSpecCol.HeaderText = "Spécialisation";
+            DGSpecCol.Name = "DGSpecCol";
+            DGSpecCol.ReadOnly = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(471, 33);
+            button1.Name = "button1";
+            button1.Size = new Size(121, 24);
+            button1.TabIndex = 8;
+            button1.Text = "Rechercher";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(textBox4);
+            groupBox2.Controls.Add(textBox5);
+            groupBox2.Controls.Add(textBox3);
+            groupBox2.Controls.Add(textBox2);
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Location = new Point(625, 19);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(134, 384);
+            groupBox2.TabIndex = 1;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Filtrer par";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(7, 164);
+            label6.Name = "label6";
+            label6.Size = new Size(45, 15);
+            label6.TabIndex = 7;
+            label6.Text = "Qualité";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(72, 182);
+            textBox4.Name = "textBox4";
+            textBox4.PlaceholderText = "Max";
+            textBox4.Size = new Size(58, 23);
+            textBox4.TabIndex = 6;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(8, 182);
+            textBox5.Name = "textBox5";
+            textBox5.PlaceholderText = "Min";
+            textBox5.Size = new Size(58, 23);
+            textBox5.TabIndex = 5;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(72, 113);
+            textBox3.Name = "textBox3";
+            textBox3.PlaceholderText = "$ Max";
+            textBox3.Size = new Size(58, 23);
+            textBox3.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(7, 113);
+            textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "$ Min";
+            textBox2.Size = new Size(58, 23);
+            textBox2.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(8, 93);
+            label5.Name = "label5";
+            label5.Size = new Size(27, 15);
+            label5.TabIndex = 2;
+            label5.Text = "Prix";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(7, 19);
+            label4.Name = "label4";
+            label4.Size = new Size(102, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Type de recherche";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Nom", "Classe", "Qualité" });
+            comboBox1.Location = new Point(6, 40);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(57, 33);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(408, 23);
+            textBox1.TabIndex = 0;
             // 
             // ModExistingItemWind
             // 
@@ -396,6 +556,9 @@
             groupBox1.PerformLayout();
             ResearchPannel.ResumeLayout(false);
             ResearchPannel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             HelloWind.ResumeLayout(false);
             HelloWind.PerformLayout();
             ResumeLayout(false);
@@ -437,7 +600,22 @@
         private Label ConnectionResult;
         private ToolStripMenuItem modifyToolStripMenuItem;
         private ToolStripMenuItem existingItemToolStripMenuItem;
-        private Label label4;
+        private GroupBox groupBox2;
         private TextBox textBox1;
+        private ComboBox comboBox1;
+        private Label label4;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private Label label5;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private Label label6;
+        private Button button1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Équipement;
+        private DataGridViewTextBoxColumn DGNomClasseCol;
+        private DataGridViewTextBoxColumn DGQualiteCol;
+        private DataGridViewTextBoxColumn DGPrixBaseCol;
+        private DataGridViewTextBoxColumn DGSpecCol;
     }
 }

@@ -78,6 +78,8 @@
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
             label3 = new Label();
+            textBox1 = new TextBox();
+            label4 = new Label();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
@@ -513,6 +515,22 @@
             label3.Size = new Size(237, 30);
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(6, 41);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(380, 23);
+            textBox1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 19);
+            label4.Name = "label4";
+            label4.Size = new Size(62, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Recherche";
             // 
             // Form1
             // 

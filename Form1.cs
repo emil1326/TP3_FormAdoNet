@@ -129,7 +129,7 @@ namespace TP3
             else
                 SearchErrTxt.Text = "no Error";
 
-                ;
+                
             dataGridView1.DataSource = SR.searchDatas;
         }
     }

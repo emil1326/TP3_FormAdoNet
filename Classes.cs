@@ -89,8 +89,6 @@ namespace TP3
             private set { }
         }
 
-        public DataTable DT = new();
-
         public void AddNewLine(string nom, string NClasse, int quality, float prixBase, string Specialisation)
         {
             searchDatas.Add(new(nom, NClasse, quality, prixBase, Specialisation));
@@ -101,7 +99,23 @@ namespace TP3
             try
             {
                 while (R.Read())
-                    AddNewLine(R.GetString(0), R.GetString(1), R.GetInt32(2), R.GetFloat(3), R.GetString(4));
+                {
+                    string S1 = R.GetString(0);
+                    string S2 = R.GetString(1);
+                    int S3 = R.GetInt32(2);
+                    float S4 = R.GetFloat(3);
+                    string S5;
+                    try
+                    {
+                        S5 = R.GetString(4);
+                    }
+                    catch
+                    {
+                        S5 = "Empty";
+                    }
+
+                    AddNewLine(S1, S2, S3, S4, S5);
+                }
             }
             catch { return false; }
             return true;
@@ -137,8 +151,6 @@ namespace TP3
                     return AddNewLines(reader);
                 }
             }
-
-            DT.Columns[1] = "e";
         }
 
         public void ReorderBy(int index, bool asc)
@@ -193,14 +205,5 @@ namespace TP3
         public int Quality = quality;
         public float PrixBase = prixBase;
         public string Specialisation = specialisation;
-    }
-
-    class DS : DataSet
-    {
-        public DS()
-        {
-
-        }
-
     }
 }

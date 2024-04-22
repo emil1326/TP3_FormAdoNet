@@ -56,12 +56,8 @@
             label2 = new Label();
             label1 = new Label();
             ResearchPannel = new GroupBox();
+            SearchErrTxt = new Label();
             dataGridView1 = new DataGridView();
-            Équipement = new DataGridViewTextBoxColumn();
-            DGNomClasseCol = new DataGridViewTextBoxColumn();
-            DGQualiteCol = new DataGridViewTextBoxColumn();
-            DGPrixBaseCol = new DataGridViewTextBoxColumn();
-            DGSpecCol = new DataGridViewTextBoxColumn();
             SearchButton = new Button();
             FilterByGB = new GroupBox();
             label6 = new Label();
@@ -78,6 +74,11 @@
             AddClassWind = new GroupBox();
             HelloWind = new GroupBox();
             label3 = new Label();
+            DGNomEquipCol = new DataGridViewTextBoxColumn();
+            DGNomClasseCol = new DataGridViewTextBoxColumn();
+            DGQualiteCol = new DataGridViewTextBoxColumn();
+            DGPrixBaseCol = new DataGridViewTextBoxColumn();
+            DGSpecCol = new DataGridViewTextBoxColumn();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
@@ -318,6 +319,7 @@
             // 
             // ResearchPannel
             // 
+            ResearchPannel.Controls.Add(SearchErrTxt);
             ResearchPannel.Controls.Add(dataGridView1);
             ResearchPannel.Controls.Add(SearchButton);
             ResearchPannel.Controls.Add(FilterByGB);
@@ -329,43 +331,23 @@
             ResearchPannel.TabStop = false;
             ResearchPannel.Text = "Recherche";
             // 
+            // SearchErrTxt
+            // 
+            SearchErrTxt.AutoSize = true;
+            SearchErrTxt.Location = new Point(390, 14);
+            SearchErrTxt.Name = "SearchErrTxt";
+            SearchErrTxt.Size = new Size(38, 15);
+            SearchErrTxt.TabIndex = 10;
+            SearchErrTxt.Text = "label7";
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Équipement, DGNomClasseCol, DGQualiteCol, DGPrixBaseCol, DGSpecCol });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { DGNomEquipCol, DGNomClasseCol, DGQualiteCol, DGPrixBaseCol, DGSpecCol });
             dataGridView1.Location = new Point(57, 72);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(535, 331);
             dataGridView1.TabIndex = 9;
-            // 
-            // Équipement
-            // 
-            Équipement.HeaderText = "Nom de l'équipement";
-            Équipement.Name = "Équipement";
-            // 
-            // DGNomClasseCol
-            // 
-            DGNomClasseCol.HeaderText = "Nom de la classe";
-            DGNomClasseCol.Name = "DGNomClasseCol";
-            DGNomClasseCol.ReadOnly = true;
-            // 
-            // DGQualiteCol
-            // 
-            DGQualiteCol.HeaderText = "Qualité";
-            DGQualiteCol.Name = "DGQualiteCol";
-            DGQualiteCol.ReadOnly = true;
-            // 
-            // DGPrixBaseCol
-            // 
-            DGPrixBaseCol.HeaderText = "Prix de base";
-            DGPrixBaseCol.Name = "DGPrixBaseCol";
-            DGPrixBaseCol.ReadOnly = true;
-            // 
-            // DGSpecCol
-            // 
-            DGSpecCol.HeaderText = "Spécialisation";
-            DGSpecCol.Name = "DGSpecCol";
-            DGSpecCol.ReadOnly = true;
             // 
             // SearchButton
             // 
@@ -375,6 +357,7 @@
             SearchButton.TabIndex = 8;
             SearchButton.Text = "Rechercher";
             SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.Click += SearchButton_Click;
             // 
             // FilterByGB
             // 
@@ -514,6 +497,31 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
+            // DGNomEquipCol
+            // 
+            DGNomEquipCol.HeaderText = "Nom de l'équipement";
+            DGNomEquipCol.Name = "DGNomEquipCol";
+            // 
+            // DGNomClasseCol
+            // 
+            DGNomClasseCol.HeaderText = "Nom de la classe";
+            DGNomClasseCol.Name = "DGNomClasseCol";
+            // 
+            // DGQualiteCol
+            // 
+            DGQualiteCol.HeaderText = "Qualité";
+            DGQualiteCol.Name = "DGQualiteCol";
+            // 
+            // DGPrixBaseCol
+            // 
+            DGPrixBaseCol.HeaderText = "Prix de base";
+            DGPrixBaseCol.Name = "DGPrixBaseCol";
+            // 
+            // DGSpecCol
+            // 
+            DGSpecCol.HeaderText = "Spécialisation";
+            DGSpecCol.Name = "DGSpecCol";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -594,7 +602,8 @@
         private Label label6;
         private Button SearchButton;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Équipement;
+        private Label SearchErrTxt;
+        private DataGridViewTextBoxColumn DGNomEquipCol;
         private DataGridViewTextBoxColumn DGNomClasseCol;
         private DataGridViewTextBoxColumn DGQualiteCol;
         private DataGridViewTextBoxColumn DGPrixBaseCol;

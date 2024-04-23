@@ -119,18 +119,20 @@ namespace TP3
 
         #endregion Login
 
-        SearchRes SR = new();
+        readonly SearchRes SR = new();
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
             string CMD = "    SELECT NOMCLASSE, NOMEQUIPEMENT, QUALITE, PRIXDEBASE, SPECIALISATION FROM EQUIPEMENTS JOIN CLASSES ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE WHERE QUALITE=20 ORDER BY QUALITE DESC";
-            if (!SR.AddAllLinesFromCommand(CMD, Conn))
-                SearchErrTxt.Text = "Error";
-            else
+            if (SR.AddAllLinesFromCommand(CMD, Conn))
                 SearchErrTxt.Text = "no Error";
+            else
+            {
+                SearchErrTxt.Text = "Error";
+                return;
+            }
 
-                
-            dataGridView1.DataSource = SR.searchDatas;
+            dataGridView2.DataSource = SR.searchDatas;
         }
     }
 }

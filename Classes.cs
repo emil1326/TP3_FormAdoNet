@@ -200,10 +200,10 @@ namespace TP3
 
     struct SearchData(string nomEquip, string nomClasse, int quality, float prixBase, string specialisation)
     {
-        public string NomEquip = nomEquip;
-        public string NomClasse = nomClasse;
-        public int Quality = quality;
-        public float PrixBase = prixBase;
-        public string Specialisation = specialisation;
+        public string NomEquip { get; set; } = nomEquip;
+        public string NomClasse { get; set; } = nomClasse;
+        public int Quality { get; set; } = quality;
+        public float PrixBase { get; set; } = prixBase;
+        public string Specialisation { get; set; } = specialisation;
     }
 }

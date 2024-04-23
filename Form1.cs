@@ -9,6 +9,16 @@ namespace TP3
 
         #region PageManager
 
+        private void forcerLeRafraichisementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetDataFromDB();
+        }
+
+        private void fermerLaConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Conn.OraCon.Close();
+        }
+
         private void ouvrirUneConnectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(1);
@@ -17,16 +27,19 @@ namespace TP3
         private void parNomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(2);
+            InitSearchPage(0);
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(3);
+            InitSearchPage(1);
         }
 
         private void qualiterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(4);
+            InitSearchPage(2);
         }
 
         private void nouvelleClasseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,20 +132,58 @@ namespace TP3
 
         #endregion Login
 
+        #region Search
+
         readonly SearchRes SR = new();
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        void InitSearchPage(int Page)
         {
-            string CMD = "    SELECT NOMCLASSE, NOMEQUIPEMENT, QUALITE, PRIXDEBASE, SPECIALISATION FROM EQUIPEMENTS JOIN CLASSES ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE WHERE QUALITE=20 ORDER BY QUALITE DESC";
-            if (SR.AddAllLinesFromCommand(CMD, Conn))
+            SearchByTypeCB.SelectedIndex = Page;
+
+            GetDataFromDB();
+        }
+
+        void GetDataFromDB()
+        {
+            SR.searchDatas.Clear();
+
+            string CMD = "SELECT NOMCLASSE, NOMEQUIPEMENT, QUALITE, PRIXDEBASE, SPECIALISATION FROM EQUIPEMENTS JOIN CLASSES ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE";
+
+            if (SR.AddAllLinesFromCommand(CMD, Conn)) //pull from database at beginig only
                 SearchErrTxt.Text = "no Error";
             else
             {
                 SearchErrTxt.Text = "Error";
                 return;
             }
-
-            dataGridView2.DataSource = SR.searchDatas;
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            FillReq();
+            SR.ST = GetSTFromCB();
+            dataGridView2.DataSource = SR.GetFilteredData(SearchBar.Text);
+        }
+
+        SearchType GetSTFromCB()
+        {
+            if (SearchByTypeCB.SelectedIndex == 0)
+                return SearchType.Nom;
+            else if (SearchByTypeCB.SelectedIndex == 1)
+                return SearchType.Classe;
+            else if (SearchByTypeCB.SelectedIndex == 2)
+                return SearchType.Quality;
+
+            throw new Exception(" no sr");
+        }
+
+        void FillReq()
+        {
+            SR.FillPQ(PrixTBMin.Text, PrixTBMax.Text, QualityTBMin.Text, QualiterTBmax.Text);
+        }
+
+        #endregion Search
+
+
     }
 }

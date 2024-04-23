@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using System.Xml.Linq;
 
 namespace TP3
 {
@@ -89,6 +90,77 @@ namespace TP3
             private set { }
         }
 
+        public SearchType ST;
+
+        public (float min, float max) prices { get; set; } = (0, 0);
+        public (int min, int max) quality { get; set; } = (0, 0);
+
+        public void FillPQ(string minP, string maxP, string minQ, string maxQ)
+        {
+            if (string.IsNullOrEmpty(minP))
+                minP = "0";
+            if (string.IsNullOrEmpty(maxP))
+                maxP = "1000";
+            if (string.IsNullOrEmpty(minQ))
+                minQ = "0";
+            if (string.IsNullOrEmpty(maxQ))
+                maxQ = "100";
+
+            float MP = float.Parse(minP);
+            float MAP = float.Parse(maxP);
+            int Mq = int.Parse(minQ);
+            int MAq = int.Parse(maxQ);
+
+            prices = (MP, MAP);
+            quality = (Mq, MAq);
+        }
+
+        public List<SearchData> GetFilteredData(string SearchTerm)
+        {
+            List<SearchData> NSD = GetPQPreSearch();
+
+            if (ST == SearchType.Nom)
+                NSD = SearchByName(NSD, SearchTerm);
+            else if (ST == SearchType.Classe)
+                NSD = SearchByClass(NSD, SearchTerm);
+            else if (ST == SearchType.Quality)
+                NSD = SearchByQuality(NSD, SearchTerm);
+            else
+                throw new Exception("No class Selected");
+
+            return NSD;
+        }
+
+        List<SearchData> SearchByName(List<SearchData> LSD, string Name)
+        {
+            return LSD.Where(item => item.NomEquip.Contains(Name)).ToList();
+        }
+
+        List<SearchData> SearchByClass(List<SearchData> LSD, string ClassName)
+        {
+
+
+            return LSD.Where(item => item.NomClasse.Contains(ClassName)).ToList();
+        }
+
+        List<SearchData> SearchByQuality(List<SearchData> LSD, string Quality)
+        {
+            return LSD.Where(item => item.Quality.ToString().Contains(Quality)).ToList();
+        }
+
+
+        List<SearchData> GetPQPreSearch()
+        {
+            List<SearchData> NSD = new();
+
+            foreach (SearchData data in searchDatas)
+                if (data.PrixBase > prices.min && data.PrixBase < prices.max)
+                    if (data.Quality > quality.min && data.Quality < quality.max)
+                        NSD.Add(data);
+
+            return NSD;
+        }
+
         public void AddNewLine(string nom, string NClasse, int quality, float prixBase, string Specialisation)
         {
             searchDatas.Add(new(nom, NClasse, quality, prixBase, Specialisation));
@@ -100,8 +172,8 @@ namespace TP3
             {
                 while (R.Read())
                 {
-                    string S1 = R.GetString(0);
-                    string S2 = R.GetString(1);
+                    string S2 = R.GetString(0);
+                    string S1 = R.GetString(1);
                     int S3 = R.GetInt32(2);
                     float S4 = R.GetFloat(3);
                     string S5;
@@ -115,21 +187,6 @@ namespace TP3
                     }
 
                     AddNewLine(S1, S2, S3, S4, S5);
-                }
-            }
-            catch { return false; }
-            return true;
-        }
-
-        public bool AddNewLines(OracleDataReader R, int AMNT)
-        {
-            try
-            {
-                int Turns = 0;
-                while (R.Read() && Turns < AMNT * 5) // *5 cuz 5 datas wanna have the lines inputed
-                {
-                    AddNewLine(R.GetString(0), R.GetString(1), R.GetInt32(2), R.GetFloat(3), R.GetString(4));
-                    Turns++;
                 }
             }
             catch { return false; }
@@ -205,5 +262,12 @@ namespace TP3
         public int Quality { get; set; } = quality;
         public float PrixBase { get; set; } = prixBase;
         public string Specialisation { get; set; } = specialisation;
+    }
+
+    public enum SearchType
+    {
+        Nom,
+        Classe,
+        Quality
     }
 }

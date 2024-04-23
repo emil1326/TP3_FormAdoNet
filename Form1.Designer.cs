@@ -67,7 +67,7 @@
             PrixTBMin = new TextBox();
             label5 = new Label();
             label4 = new Label();
-            comboBox1 = new ComboBox();
+            SearchByTypeCB = new ComboBox();
             SearchBar = new TextBox();
             ModExistingItemWind = new GroupBox();
             AddEquipWind = new GroupBox();
@@ -112,12 +112,14 @@
             fermerLaConnectionToolStripMenuItem.Name = "fermerLaConnectionToolStripMenuItem";
             fermerLaConnectionToolStripMenuItem.Size = new Size(204, 22);
             fermerLaConnectionToolStripMenuItem.Text = "Fermer la connection";
+            fermerLaConnectionToolStripMenuItem.Click += fermerLaConnectionToolStripMenuItem_Click;
             // 
             // forcerLeRafraichisementToolStripMenuItem
             // 
             forcerLeRafraichisementToolStripMenuItem.Name = "forcerLeRafraichisementToolStripMenuItem";
             forcerLeRafraichisementToolStripMenuItem.Size = new Size(204, 22);
             forcerLeRafraichisementToolStripMenuItem.Text = "Forcer le rafraichisement";
+            forcerLeRafraichisementToolStripMenuItem.Click += forcerLeRafraichisementToolStripMenuItem_Click;
             // 
             // rechercheToolStripMenuItem
             // 
@@ -362,7 +364,7 @@
             FilterByGB.Controls.Add(PrixTBMin);
             FilterByGB.Controls.Add(label5);
             FilterByGB.Controls.Add(label4);
-            FilterByGB.Controls.Add(comboBox1);
+            FilterByGB.Controls.Add(SearchByTypeCB);
             FilterByGB.Location = new Point(625, 19);
             FilterByGB.Name = "FilterByGB";
             FilterByGB.Size = new Size(134, 384);
@@ -429,14 +431,14 @@
             label4.TabIndex = 1;
             label4.Text = "Recherche";
             // 
-            // comboBox1
+            // SearchByTypeCB
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Nom", "Classe", "Qualité" });
-            comboBox1.Location = new Point(6, 40);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 0;
+            SearchByTypeCB.FormattingEnabled = true;
+            SearchByTypeCB.Items.AddRange(new object[] { "Nom", "Classe", "Qualité" });
+            SearchByTypeCB.Location = new Point(6, 40);
+            SearchByTypeCB.Name = "SearchByTypeCB";
+            SearchByTypeCB.Size = new Size(121, 23);
+            SearchByTypeCB.TabIndex = 0;
             // 
             // SearchBar
             // 
@@ -561,7 +563,7 @@
         private ToolStripMenuItem existingItemToolStripMenuItem;
         private GroupBox FilterByGB;
         private TextBox SearchBar;
-        private ComboBox comboBox1;
+        private ComboBox SearchByTypeCB;
         private Label label4;
         private TextBox PrixTBMax;
         private TextBox PrixTBMin;

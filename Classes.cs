@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System.Data;
 using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TP3
 {
@@ -12,9 +13,19 @@ namespace TP3
     class ConnectionManager
     {
 
-        public string InsertIntoConn(string InsertCMD)
+        public void InsertIntoConn(string InsertCMD)
         {
-            ConnectionManager.InsertIntoDB(InsertCMD);
+            try
+            {
+                OracleCommand CMD = new OracleCommand(InsertCMD, OraCon);
+             
+                MessageBox.Show("Inséré!");
+            }
+            catch
+            {
+                MessageBox.Show("Erreur lors de l'insertion!");
+            }
+           
         }
 
         public OracleConnection OraCon = new();

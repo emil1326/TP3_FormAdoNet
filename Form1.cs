@@ -1,4 +1,5 @@
 using Oracle.ManagedDataAccess.Client;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TP3
 {
@@ -193,19 +194,23 @@ namespace TP3
             TBidClass.MaxLength = 3;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+         private void button1_Click(object sender, EventArgs e)
         {
            
-            
+            ConnectionManager connectionManager = new ConnectionManager();
               
             string insertData = TBidClass.Text;
+            
             string insertCMD = "INSERT INTO EQUIPEMENTS (idClasse) VALUES(@Data) ";
             OracleCommand CMD = new OracleCommand(insertCMD);
+            
             string parameterName = "@Data";
             OracleParameter parameterData = new OracleParameter(parameterName, OracleDbType.Varchar2);
             parameterData.Value = insertData;
             CMD.Parameters.Add(parameterData);
-
+          
+            connectionManager.InsertIntoConn(insertCMD);
+           
         }
         #endregion
 

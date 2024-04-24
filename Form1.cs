@@ -201,13 +201,10 @@ namespace TP3
               
             string insertData = TBidClass.Text;
             
-            string insertCMD = "INSERT INTO EQUIPEMENTS (idClasse) VALUES(@Data) ";
+            string insertCMD = "INSERT INTO EQUIPEMENTS (idClasse) VALUES('"+insertData+"') ";
             OracleCommand CMD = new OracleCommand(insertCMD);
             
-            string parameterName = "@Data";
-            OracleParameter parameterData = new OracleParameter(parameterName, OracleDbType.Varchar2);
-            parameterData.Value = insertData;
-            CMD.Parameters.Add(parameterData);
+           
           
             connectionManager.InsertIntoConn(insertCMD);
            

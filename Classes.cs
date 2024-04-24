@@ -11,6 +11,7 @@ namespace TP3
 
     class ConnectionManager
     {
+
         public OracleConnection OraCon = new();
 
         public string AdvancedSettings;
@@ -251,6 +252,8 @@ namespace TP3
                         searchDatas = searchDatas.OrderByDescending(data => data.NomEquip).ToList();
                     break;
             }
+
+            
         }
 
     }

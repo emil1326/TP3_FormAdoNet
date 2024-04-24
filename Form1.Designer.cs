@@ -71,28 +71,28 @@
             SearchBar = new TextBox();
             ModExistingItemWind = new GroupBox();
             AddEquipWind = new GroupBox();
+            ButEqui = new Button();
+            comboBox1 = new ComboBox();
+            label15 = new Label();
+            TBprice = new TextBox();
+            label14 = new Label();
+            TBqualite = new TextBox();
+            label13 = new Label();
+            TBnameEqui = new TextBox();
+            label12 = new Label();
+            TBidEqui = new TextBox();
+            label11 = new Label();
             AddClassWind = new GroupBox();
+            button1 = new Button();
+            TBspecClass = new TextBox();
+            label10 = new Label();
+            TBnameClass = new TextBox();
+            label9 = new Label();
+            label8 = new Label();
+            TBidClass = new TextBox();
+            label7 = new Label();
             HelloWind = new GroupBox();
             label3 = new Label();
-            label7 = new Label();
-            TBidClass = new TextBox();
-            label8 = new Label();
-            label9 = new Label();
-            TBnameClass = new TextBox();
-            label10 = new Label();
-            TBspecClass = new TextBox();
-            button1 = new Button();
-            label11 = new Label();
-            TBidEqui = new TextBox();
-            label12 = new Label();
-            TBnameEqui = new TextBox();
-            label13 = new Label();
-            TBqualite = new TextBox();
-            label14 = new Label();
-            TBprice = new TextBox();
-            label15 = new Label();
-            comboBox1 = new ComboBox();
-            ButEqui = new Button();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
@@ -180,14 +180,14 @@
             // nouvelleClasseToolStripMenuItem
             // 
             nouvelleClasseToolStripMenuItem.Name = "nouvelleClasseToolStripMenuItem";
-            nouvelleClasseToolStripMenuItem.Size = new Size(180, 22);
+            nouvelleClasseToolStripMenuItem.Size = new Size(157, 22);
             nouvelleClasseToolStripMenuItem.Text = "Nouvelle Classe";
             nouvelleClasseToolStripMenuItem.Click += nouvelleClasseToolStripMenuItem_Click;
             // 
             // nouvelleItemToolStripMenuItem
             // 
             nouvelleItemToolStripMenuItem.Name = "nouvelleItemToolStripMenuItem";
-            nouvelleItemToolStripMenuItem.Size = new Size(180, 22);
+            nouvelleItemToolStripMenuItem.Size = new Size(157, 22);
             nouvelleItemToolStripMenuItem.Text = "Nouvelle item";
             nouvelleItemToolStripMenuItem.Click += nouvelleItemToolStripMenuItem_Click;
             // 
@@ -497,6 +497,96 @@
             AddEquipWind.TabStop = false;
             AddEquipWind.Text = "Ajouter un equipement";
             // 
+            // ButEqui
+            // 
+            ButEqui.Location = new Point(12, 326);
+            ButEqui.Name = "ButEqui";
+            ButEqui.Size = new Size(208, 59);
+            ButEqui.TabIndex = 10;
+            ButEqui.Text = "Ajouter l'équipement";
+            ButEqui.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(12, 285);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(208, 23);
+            comboBox1.TabIndex = 9;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(12, 258);
+            label15.Name = "label15";
+            label15.Size = new Size(51, 15);
+            label15.TabIndex = 8;
+            label15.Text = "Id classe";
+            // 
+            // TBprice
+            // 
+            TBprice.Location = new Point(12, 223);
+            TBprice.Name = "TBprice";
+            TBprice.Size = new Size(208, 23);
+            TBprice.TabIndex = 7;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(12, 205);
+            label14.Name = "label14";
+            label14.Size = new Size(70, 15);
+            label14.TabIndex = 6;
+            label14.Text = "Prix de base";
+            // 
+            // TBqualite
+            // 
+            TBqualite.Location = new Point(12, 165);
+            TBqualite.Name = "TBqualite";
+            TBqualite.Size = new Size(208, 23);
+            TBqualite.TabIndex = 5;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(12, 143);
+            label13.Name = "label13";
+            label13.Size = new Size(45, 15);
+            label13.TabIndex = 4;
+            label13.Text = "Qualité";
+            // 
+            // TBnameEqui
+            // 
+            TBnameEqui.Location = new Point(12, 109);
+            TBnameEqui.Name = "TBnameEqui";
+            TBnameEqui.Size = new Size(208, 23);
+            TBnameEqui.TabIndex = 3;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(12, 91);
+            label12.Name = "label12";
+            label12.Size = new Size(123, 15);
+            label12.TabIndex = 2;
+            label12.Text = "Nom de l'équipement";
+            // 
+            // TBidEqui
+            // 
+            TBidEqui.Location = new Point(12, 52);
+            TBidEqui.Name = "TBidEqui";
+            TBidEqui.Size = new Size(208, 23);
+            TBidEqui.TabIndex = 1;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(12, 30);
+            label11.Name = "label11";
+            label11.Size = new Size(163, 15);
+            label11.TabIndex = 0;
+            label11.Text = "Id de l'équipement  (1 chiffre)";
+            // 
             // AddClassWind
             // 
             AddClassWind.Controls.Add(button1);
@@ -513,6 +603,73 @@
             AddClassWind.TabIndex = 0;
             AddClassWind.TabStop = false;
             AddClassWind.Text = "Ajouter une nouvelle classe";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(12, 223);
+            button1.Name = "button1";
+            button1.Size = new Size(220, 85);
+            button1.TabIndex = 7;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // TBspecClass
+            // 
+            TBspecClass.Location = new Point(12, 175);
+            TBspecClass.Name = "TBspecClass";
+            TBspecClass.Size = new Size(220, 23);
+            TBspecClass.TabIndex = 6;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(12, 154);
+            label10.Name = "label10";
+            label10.Size = new Size(79, 15);
+            label10.TabIndex = 5;
+            label10.Text = "Spécialisation";
+            // 
+            // TBnameClass
+            // 
+            TBnameClass.Location = new Point(12, 109);
+            TBnameClass.Name = "TBnameClass";
+            TBnameClass.Size = new Size(220, 23);
+            TBnameClass.TabIndex = 4;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(12, 85);
+            label9.Name = "label9";
+            label9.Size = new Size(96, 15);
+            label9.TabIndex = 3;
+            label9.Text = "Nom de la classe";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(12, 85);
+            label8.Name = "label8";
+            label8.Size = new Size(0, 15);
+            label8.TabIndex = 2;
+            // 
+            // TBidClass
+            // 
+            TBidClass.Location = new Point(12, 49);
+            TBidClass.Name = "TBidClass";
+            TBidClass.Size = new Size(220, 23);
+            TBidClass.TabIndex = 1;
+            TBidClass.TextChanged += TBidClass_TextChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(12, 31);
+            label7.Name = "label7";
+            label7.Size = new Size(124, 15);
+            label7.TabIndex = 0;
+            label7.Text = "Id classe (3 caractères)";
             // 
             // HelloWind
             // 
@@ -533,168 +690,13 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(12, 31);
-            label7.Name = "label7";
-            label7.Size = new Size(124, 15);
-            label7.TabIndex = 0;
-            label7.Text = "Id classe (3 caractères)";
-            // 
-            // TBidClass
-            // 
-            TBidClass.Location = new Point(12, 49);
-            TBidClass.Name = "TBidClass";
-            TBidClass.Size = new Size(220, 23);
-            TBidClass.TabIndex = 1;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(12, 85);
-            label8.Name = "label8";
-            label8.Size = new Size(0, 15);
-            label8.TabIndex = 2;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(12, 85);
-            label9.Name = "label9";
-            label9.Size = new Size(96, 15);
-            label9.TabIndex = 3;
-            label9.Text = "Nom de la classe";
-            // 
-            // TBnameClass
-            // 
-            TBnameClass.Location = new Point(12, 109);
-            TBnameClass.Name = "TBnameClass";
-            TBnameClass.Size = new Size(220, 23);
-            TBnameClass.TabIndex = 4;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(12, 154);
-            label10.Name = "label10";
-            label10.Size = new Size(79, 15);
-            label10.TabIndex = 5;
-            label10.Text = "Spécialisation";
-            // 
-            // TBspecClass
-            // 
-            TBspecClass.Location = new Point(12, 175);
-            TBspecClass.Name = "TBspecClass";
-            TBspecClass.Size = new Size(220, 23);
-            TBspecClass.TabIndex = 6;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(12, 223);
-            button1.Name = "button1";
-            button1.Size = new Size(220, 85);
-            button1.TabIndex = 7;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(12, 30);
-            label11.Name = "label11";
-            label11.Size = new Size(163, 15);
-            label11.TabIndex = 0;
-            label11.Text = "Id de l'équipement  (1 chiffre)";
-            // 
-            // TBidEqui
-            // 
-            TBidEqui.Location = new Point(12, 52);
-            TBidEqui.Name = "TBidEqui";
-            TBidEqui.Size = new Size(208, 23);
-            TBidEqui.TabIndex = 1;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(12, 91);
-            label12.Name = "label12";
-            label12.Size = new Size(123, 15);
-            label12.TabIndex = 2;
-            label12.Text = "Nom de l'équipement";
-            // 
-            // TBnameEqui
-            // 
-            TBnameEqui.Location = new Point(12, 109);
-            TBnameEqui.Name = "TBnameEqui";
-            TBnameEqui.Size = new Size(208, 23);
-            TBnameEqui.TabIndex = 3;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(12, 143);
-            label13.Name = "label13";
-            label13.Size = new Size(45, 15);
-            label13.TabIndex = 4;
-            label13.Text = "Qualité";
-            // 
-            // TBqualite
-            // 
-            TBqualite.Location = new Point(12, 165);
-            TBqualite.Name = "TBqualite";
-            TBqualite.Size = new Size(208, 23);
-            TBqualite.TabIndex = 5;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(12, 205);
-            label14.Name = "label14";
-            label14.Size = new Size(70, 15);
-            label14.TabIndex = 6;
-            label14.Text = "Prix de base";
-            // 
-            // TBprice
-            // 
-            TBprice.Location = new Point(12, 223);
-            TBprice.Name = "TBprice";
-            TBprice.Size = new Size(208, 23);
-            TBprice.TabIndex = 7;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(12, 258);
-            label15.Name = "label15";
-            label15.Size = new Size(51, 15);
-            label15.TabIndex = 8;
-            label15.Text = "Id classe";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 285);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(208, 23);
-            comboBox1.TabIndex = 9;
-            // 
-            // ButEqui
-            // 
-            ButEqui.Location = new Point(12, 326);
-            ButEqui.Name = "ButEqui";
-            ButEqui.Size = new Size(208, 59);
-            ButEqui.TabIndex = 10;
-            ButEqui.Text = "Ajouter l'équipement";
-            ButEqui.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(AddEquipWind);
             Controls.Add(AddClassWind);
+            Controls.Add(AddEquipWind);
             Controls.Add(MyMainMenuStrip);
             Controls.Add(ResearchPannel);
             Controls.Add(OpenConnPannel);

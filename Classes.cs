@@ -12,6 +12,11 @@ namespace TP3
     class ConnectionManager
     {
 
+        public string InsertIntoConn(string InsertCMD)
+        {
+            ConnectionManager.InsertIntoDB(InsertCMD);
+        }
+
         public OracleConnection OraCon = new();
 
         public string AdvancedSettings;

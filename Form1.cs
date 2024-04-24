@@ -195,8 +195,9 @@ namespace TP3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Conn.Connect();
            
+            
+              
             string insertData = TBidClass.Text;
             string insertCMD = "INSERT INTO EQUIPEMENTS (idClasse) VALUES(@Data) ";
             OracleCommand CMD = new OracleCommand(insertCMD);

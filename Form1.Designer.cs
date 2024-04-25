@@ -620,6 +620,7 @@
             TBspecClass.Name = "TBspecClass";
             TBspecClass.Size = new Size(220, 23);
             TBspecClass.TabIndex = 6;
+            TBspecClass.TextChanged += TBspecClass_TextChanged;
             // 
             // label10
             // 
@@ -636,6 +637,7 @@
             TBnameClass.Name = "TBnameClass";
             TBnameClass.Size = new Size(220, 23);
             TBnameClass.TabIndex = 4;
+            TBnameClass.TextChanged += TBnameClass_TextChanged;
             // 
             // label9
             // 

@@ -16,7 +16,7 @@ namespace TP3
             try
             {
                 OracleCommand CMD = new OracleCommand(InsertCMD, OraCon);
-             
+                
                 MessageBox.Show("Inséré!");
             }
             catch

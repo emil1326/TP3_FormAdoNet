@@ -1,5 +1,3 @@
-using Oracle.ManagedDataAccess.Client;
-
 namespace TP3
 {
     public partial class Form1 : Form
@@ -11,55 +9,55 @@ namespace TP3
 
         #region PageManager
 
-        private void forcerLeRafraichisementToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ForcerLeRafraichisementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GetDataFromDB();
         }
 
-        private void fermerLaConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FermerLaConnectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Conn.OraCon.Close();
         }
 
-        private void ouvrirUneConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OuvrirUneConnectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(1);
         }
 
-        private void parNomToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ParNomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(2);
             InitSearchPage(0);
         }
 
-        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(3);
             InitSearchPage(1);
         }
 
-        private void qualiterToolStripMenuItem_Click(object sender, EventArgs e)
+        private void QualiterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(4);
             InitSearchPage(2);
         }
 
-        private void nouvelleClasseToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NouvelleClasseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(5);
         }
 
-        private void nouvelleItemToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NouvelleItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(6);
         }
 
-        private void menuPrincipaleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuPrincipaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(7);
         }
 
-        private void existingItemToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExistingItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToPage(8);
         }
@@ -147,7 +145,7 @@ namespace TP3
 
         void GetDataFromDB()
         {
-            SR.searchDatas.Clear();
+            SR.SearchDatas.Clear();
 
             string CMD = "SELECT NOMCLASSE, NOMEQUIPEMENT, QUALITE, PRIXDEBASE, SPECIALISATION FROM EQUIPEMENTS JOIN CLASSES ON EQUIPEMENTS.IDCLASSE=CLASSES.IDCLASSE";
 
@@ -187,43 +185,22 @@ namespace TP3
         #endregion Search
 
         #region Page ajouter
-        private void TBidClass_TextChanged(object sender, EventArgs e)
-        {
-            TextBox TBidClass = new();
-            TBidClass.MaxLength = 3;
-        }
-        private void TBnameClass_TextChanged(object sender, EventArgs e)
-        {
-            TextBox TBnameClass = new();
-        }
-        private void TBspecClass_TextChanged(object sender, EventArgs e)
-        {
-            TextBox TBspecClass = new();
-        }
+
         private void ButtonAddNewClass_Click(object sender, EventArgs e)
         {
-
-
-
-            string insertClassID = TBidClass.Text;
-            string insertName = TBnameClass.Text;
-            string insertSpec = TBspecClass.Text;
+            string insertClassID = TBidClass.Text.Trim();
+            string insertName = TBnameClass.Text.Trim();
+            string insertSpec = TBspecClass.Text.Trim();
 
             string insertCMD = $"INSERT INTO CLASSES (IDCLASSE, NOMCLASSE, SPECIALISATION) VALUES ('{insertClassID}', '{insertName}', '{insertSpec}') ";
 
-            if(Conn.InsertIntoConn(insertCMD))
-            {
+            if (Conn.InsertIntoConn(insertCMD))
                 AddClassWindowLabel.Text = "Inséré!";
-            }
             else
-            {
                 AddClassWindowLabel.Text = "Erreur";
-            }
-
-
-
 
         }
+
         #endregion
     }
 }

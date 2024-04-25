@@ -1,6 +1,5 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System.Data;
-using System.Diagnostics;
 
 namespace TP3
 {
@@ -11,40 +10,11 @@ namespace TP3
 
     class ConnectionManager
     {
-
-        public bool InsertIntoConn(string InsertCMD)
-        {
-            try
-            {
-                
-                using (OracleCommand CMD = new OracleCommand(InsertCMD, OraCon))
-                {
-                    Debug.Print(InsertCMD);
-                    Debug.Print(CMD.CommandText);
-                    Debug.Print(HasActiveConnection.ToString());
-
-                    
-
-                    CMD.ExecuteNonQuery();
-
-                    return true;
-                  
-                }
-               
-            }
-            catch
-            {
-                return false;
-               
-            }
-            
-        }
-
         public OracleConnection OraCon = new();
 
-        public string AdvancedSettings;
-        public string Username;
-        public string Password;
+        public string AdvancedSettings = "";
+        public string Username = "";
+        public string Password = "";
 
         public string ConnChain
         {
@@ -66,11 +36,6 @@ namespace TP3
             }
             private set { }
         } // return true if active
-
-        public ConnectionManager()
-        {
-        }
-
 
         public bool TestConnection()
         {
@@ -101,19 +66,33 @@ namespace TP3
 
             return HasActiveConnection;
         }
+
+        public bool InsertIntoConn(string InsertCMD)
+        {
+            try
+            {
+                using (OracleCommand CMD = new(InsertCMD, OraCon))
+                {
+                    CMD.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch { return false; }
+
+        }
     }
 
     class SearchRes
     {
-        public List<SearchData> searchDatas { get; set; } = new();
+        public List<SearchData> SearchDatas { get; set; } = [];
         public float AVGPrice
         {
             get
             {
                 float AVG = 0;
-                foreach (SearchData data in searchDatas)
+                foreach (SearchData data in SearchDatas)
                     AVG += data.PrixBase;
-                AVG /= searchDatas.Count;
+                AVG /= SearchDatas.Count;
                 return AVG;
             }
             private set { }
@@ -121,8 +100,8 @@ namespace TP3
 
         public SearchType ST;
 
-        public (float min, float max) prices { get; set; } = (0, 0);
-        public (int min, int max) quality { get; set; } = (0, 0);
+        public (float min, float max) Prices { get; set; } = (0, 0);
+        public (int min, int max) Quality { get; set; } = (0, 0);
 
         public void FillPQ(string minP, string maxP, string minQ, string maxQ)
         {
@@ -140,8 +119,8 @@ namespace TP3
             int Mq = int.Parse(minQ);
             int MAq = int.Parse(maxQ);
 
-            prices = (MP, MAP);
-            quality = (Mq, MAq);
+            Prices = (MP, MAP);
+            Quality = (Mq, MAq);
         }
 
         public List<SearchData> GetFilteredData(string SearchTerm)
@@ -160,31 +139,28 @@ namespace TP3
             return NSD;
         }
 
-        List<SearchData> SearchByName(List<SearchData> LSD, string Name)
+        static List<SearchData> SearchByName(List<SearchData> LSD, string Name)
         {
             return LSD.Where(item => item.NomEquip.Contains(Name)).ToList();
         }
 
-        List<SearchData> SearchByClass(List<SearchData> LSD, string ClassName)
+        static List<SearchData> SearchByClass(List<SearchData> LSD, string ClassName)
         {
-
-
             return LSD.Where(item => item.NomClasse.Contains(ClassName)).ToList();
         }
 
-        List<SearchData> SearchByQuality(List<SearchData> LSD, string Quality)
+        static List<SearchData> SearchByQuality(List<SearchData> LSD, string Quality)
         {
             return LSD.Where(item => item.Quality.ToString().Contains(Quality)).ToList();
         }
 
-
         List<SearchData> GetPQPreSearch()
         {
-            List<SearchData> NSD = new();
+            List<SearchData> NSD = [];
 
-            foreach (SearchData data in searchDatas)
-                if (data.PrixBase > prices.min && data.PrixBase < prices.max)
-                    if (data.Quality > quality.min && data.Quality < quality.max)
+            foreach (SearchData data in SearchDatas)
+                if (data.PrixBase > Prices.min && data.PrixBase < Prices.max)
+                    if (data.Quality > Quality.min && data.Quality < Quality.max)
                         NSD.Add(data);
 
             return NSD;
@@ -192,7 +168,7 @@ namespace TP3
 
         public void AddNewLine(string nom, string NClasse, int quality, float prixBase, string Specialisation)
         {
-            searchDatas.Add(new(nom, NClasse, quality, prixBase, Specialisation));
+            SearchDatas.Add(new(nom, NClasse, quality, prixBase, Specialisation));
         }
 
         public bool AddNewLines(OracleDataReader R)
@@ -245,43 +221,42 @@ namespace TP3
             {
                 case 0: // Order by NomEquip
                     if (asc)
-                        searchDatas = searchDatas.OrderBy(data => data.NomEquip).ToList();
+                        SearchDatas = SearchDatas.OrderBy(data => data.NomEquip).ToList();
                     else
-                        searchDatas = searchDatas.OrderByDescending(data => data.NomEquip).ToList();
+                        SearchDatas = SearchDatas.OrderByDescending(data => data.NomEquip).ToList();
                     break;
                 case 1: // Order by NomClasse
                     if (asc)
-                        searchDatas = searchDatas.OrderBy(data => data.NomClasse).ToList();
+                        SearchDatas = SearchDatas.OrderBy(data => data.NomClasse).ToList();
                     else
-                        searchDatas = searchDatas.OrderByDescending(data => data.NomClasse).ToList();
+                        SearchDatas = SearchDatas.OrderByDescending(data => data.NomClasse).ToList();
                     break;
                 case 2: // Order by Quality
                     if (asc)
-                        searchDatas = searchDatas.OrderBy(data => data.Quality).ToList();
+                        SearchDatas = SearchDatas.OrderBy(data => data.Quality).ToList();
                     else
-                        searchDatas = searchDatas.OrderByDescending(data => data.Quality).ToList();
+                        SearchDatas = SearchDatas.OrderByDescending(data => data.Quality).ToList();
                     break;
                 case 3: // Order by PrixBase
                     if (asc)
-                        searchDatas = searchDatas.OrderBy(data => data.PrixBase).ToList();
+                        SearchDatas = SearchDatas.OrderBy(data => data.PrixBase).ToList();
                     else
-                        searchDatas = searchDatas.OrderByDescending(data => data.PrixBase).ToList();
+                        SearchDatas = SearchDatas.OrderByDescending(data => data.PrixBase).ToList();
                     break;
                 case 4: // Order by Specialisation
                     if (asc)
-                        searchDatas = searchDatas.OrderBy(data => data.Specialisation).ToList();
+                        SearchDatas = SearchDatas.OrderBy(data => data.Specialisation).ToList();
                     else
-                        searchDatas = searchDatas.OrderByDescending(data => data.Specialisation).ToList();
+                        SearchDatas = SearchDatas.OrderByDescending(data => data.Specialisation).ToList();
                     break;
                 default: // Handle invalid index
                     if (asc)
-                        searchDatas = searchDatas.OrderBy(data => data.NomEquip).ToList();
+                        SearchDatas = SearchDatas.OrderBy(data => data.NomEquip).ToList();
                     else
-                        searchDatas = searchDatas.OrderByDescending(data => data.NomEquip).ToList();
+                        SearchDatas = SearchDatas.OrderByDescending(data => data.NomEquip).ToList();
                     break;
             }
         }
-
     }
 
     struct SearchData(string nomEquip, string nomClasse, int quality, float prixBase, string specialisation)

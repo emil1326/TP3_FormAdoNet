@@ -127,21 +127,21 @@
             ouvrirUneConnectionToolStripMenuItem.Name = "ouvrirUneConnectionToolStripMenuItem";
             ouvrirUneConnectionToolStripMenuItem.Size = new Size(204, 22);
             ouvrirUneConnectionToolStripMenuItem.Text = "Ouvrir une connection";
-            ouvrirUneConnectionToolStripMenuItem.Click += ouvrirUneConnectionToolStripMenuItem_Click;
+            ouvrirUneConnectionToolStripMenuItem.Click += OuvrirUneConnectionToolStripMenuItem_Click;
             // 
             // fermerLaConnectionToolStripMenuItem
             // 
             fermerLaConnectionToolStripMenuItem.Name = "fermerLaConnectionToolStripMenuItem";
             fermerLaConnectionToolStripMenuItem.Size = new Size(204, 22);
             fermerLaConnectionToolStripMenuItem.Text = "Fermer la connection";
-            fermerLaConnectionToolStripMenuItem.Click += fermerLaConnectionToolStripMenuItem_Click;
+            fermerLaConnectionToolStripMenuItem.Click += FermerLaConnectionToolStripMenuItem_Click;
             // 
             // forcerLeRafraichisementToolStripMenuItem
             // 
             forcerLeRafraichisementToolStripMenuItem.Name = "forcerLeRafraichisementToolStripMenuItem";
             forcerLeRafraichisementToolStripMenuItem.Size = new Size(204, 22);
             forcerLeRafraichisementToolStripMenuItem.Text = "Forcer le rafraichisement";
-            forcerLeRafraichisementToolStripMenuItem.Click += forcerLeRafraichisementToolStripMenuItem_Click;
+            forcerLeRafraichisementToolStripMenuItem.Click += ForcerLeRafraichisementToolStripMenuItem_Click;
             // 
             // rechercheToolStripMenuItem
             // 
@@ -155,21 +155,21 @@
             parNomToolStripMenuItem.Name = "parNomToolStripMenuItem";
             parNomToolStripMenuItem.Size = new Size(119, 22);
             parNomToolStripMenuItem.Text = "Par nom";
-            parNomToolStripMenuItem.Click += parNomToolStripMenuItem_Click;
+            parNomToolStripMenuItem.Click += ParNomToolStripMenuItem_Click;
             // 
             // cToolStripMenuItem
             // 
             cToolStripMenuItem.Name = "cToolStripMenuItem";
             cToolStripMenuItem.Size = new Size(119, 22);
             cToolStripMenuItem.Text = "Classe";
-            cToolStripMenuItem.Click += cToolStripMenuItem_Click;
+            cToolStripMenuItem.Click += CToolStripMenuItem_Click;
             // 
             // qualiterToolStripMenuItem
             // 
             qualiterToolStripMenuItem.Name = "qualiterToolStripMenuItem";
             qualiterToolStripMenuItem.Size = new Size(119, 22);
             qualiterToolStripMenuItem.Text = "Qualiter";
-            qualiterToolStripMenuItem.Click += qualiterToolStripMenuItem_Click;
+            qualiterToolStripMenuItem.Click += QualiterToolStripMenuItem_Click;
             // 
             // ajouterToolStripMenuItem
             // 
@@ -181,16 +181,16 @@
             // nouvelleClasseToolStripMenuItem
             // 
             nouvelleClasseToolStripMenuItem.Name = "nouvelleClasseToolStripMenuItem";
-            nouvelleClasseToolStripMenuItem.Size = new Size(180, 22);
+            nouvelleClasseToolStripMenuItem.Size = new Size(157, 22);
             nouvelleClasseToolStripMenuItem.Text = "Nouvelle Classe";
-            nouvelleClasseToolStripMenuItem.Click += nouvelleClasseToolStripMenuItem_Click;
+            nouvelleClasseToolStripMenuItem.Click += NouvelleClasseToolStripMenuItem_Click;
             // 
             // nouvelleItemToolStripMenuItem
             // 
             nouvelleItemToolStripMenuItem.Name = "nouvelleItemToolStripMenuItem";
-            nouvelleItemToolStripMenuItem.Size = new Size(180, 22);
+            nouvelleItemToolStripMenuItem.Size = new Size(157, 22);
             nouvelleItemToolStripMenuItem.Text = "Nouvelle item";
-            nouvelleItemToolStripMenuItem.Click += nouvelleItemToolStripMenuItem_Click;
+            nouvelleItemToolStripMenuItem.Click += NouvelleItemToolStripMenuItem_Click;
             // 
             // modifyToolStripMenuItem
             // 
@@ -202,16 +202,16 @@
             // existingItemToolStripMenuItem
             // 
             existingItemToolStripMenuItem.Name = "existingItemToolStripMenuItem";
-            existingItemToolStripMenuItem.Size = new Size(180, 22);
+            existingItemToolStripMenuItem.Size = new Size(142, 22);
             existingItemToolStripMenuItem.Text = "Item existant";
-            existingItemToolStripMenuItem.Click += existingItemToolStripMenuItem_Click;
+            existingItemToolStripMenuItem.Click += ExistingItemToolStripMenuItem_Click;
             // 
             // menuPrincipaleToolStripMenuItem
             // 
             menuPrincipaleToolStripMenuItem.Name = "menuPrincipaleToolStripMenuItem";
             menuPrincipaleToolStripMenuItem.Size = new Size(99, 20);
             menuPrincipaleToolStripMenuItem.Text = "Menu principal";
-            menuPrincipaleToolStripMenuItem.Click += menuPrincipaleToolStripMenuItem_Click;
+            menuPrincipaleToolStripMenuItem.Click += MenuPrincipaleToolStripMenuItem_Click;
             // 
             // OpenConnPannel
             // 
@@ -543,6 +543,7 @@
             // TBqualite
             // 
             TBqualite.Location = new Point(12, 165);
+            TBqualite.MaxLength = 2;
             TBqualite.Name = "TBqualite";
             TBqualite.Size = new Size(208, 23);
             TBqualite.TabIndex = 5;
@@ -559,6 +560,7 @@
             // TBnameEqui
             // 
             TBnameEqui.Location = new Point(12, 109);
+            TBnameEqui.MaxLength = 50;
             TBnameEqui.Name = "TBnameEqui";
             TBnameEqui.Size = new Size(208, 23);
             TBnameEqui.TabIndex = 3;
@@ -627,10 +629,10 @@
             // TBspecClass
             // 
             TBspecClass.Location = new Point(12, 175);
+            TBspecClass.MaxLength = 50;
             TBspecClass.Name = "TBspecClass";
             TBspecClass.Size = new Size(220, 23);
             TBspecClass.TabIndex = 6;
-            TBspecClass.TextChanged += TBspecClass_TextChanged;
             // 
             // label10
             // 
@@ -644,10 +646,10 @@
             // TBnameClass
             // 
             TBnameClass.Location = new Point(12, 109);
+            TBnameClass.MaxLength = 50;
             TBnameClass.Name = "TBnameClass";
             TBnameClass.Size = new Size(220, 23);
             TBnameClass.TabIndex = 4;
-            TBnameClass.TextChanged += TBnameClass_TextChanged;
             // 
             // label9
             // 
@@ -669,10 +671,10 @@
             // TBidClass
             // 
             TBidClass.Location = new Point(12, 49);
+            TBidClass.MaxLength = 3;
             TBidClass.Name = "TBidClass";
             TBidClass.Size = new Size(220, 23);
             TBidClass.TabIndex = 1;
-            TBidClass.TextChanged += TBidClass_TextChanged;
             // 
             // label7
             // 
@@ -707,11 +709,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(AddEquipWind);
-            Controls.Add(AddClassWind);
             Controls.Add(MyMainMenuStrip);
-            Controls.Add(ResearchPannel);
             Controls.Add(OpenConnPannel);
+            Controls.Add(ResearchPannel);
+            Controls.Add(AddClassWind);
+            Controls.Add(AddEquipWind);
             Controls.Add(HelloWind);
             Controls.Add(ModExistingItemWind);
             Name = "Form1";

@@ -72,7 +72,7 @@
             ModExistingItemWind = new GroupBox();
             AddEquipWind = new GroupBox();
             ButEqui = new Button();
-            comboBox1 = new ComboBox();
+            CBIDClass = new ComboBox();
             label15 = new Label();
             TBprice = new TextBox();
             label14 = new Label();
@@ -83,7 +83,8 @@
             TBidEqui = new TextBox();
             label11 = new Label();
             AddClassWind = new GroupBox();
-            button1 = new Button();
+            AddClassWindowLabel = new Label();
+            ButtonAddNewClass = new Button();
             TBspecClass = new TextBox();
             label10 = new Label();
             TBnameClass = new TextBox();
@@ -180,14 +181,14 @@
             // nouvelleClasseToolStripMenuItem
             // 
             nouvelleClasseToolStripMenuItem.Name = "nouvelleClasseToolStripMenuItem";
-            nouvelleClasseToolStripMenuItem.Size = new Size(157, 22);
+            nouvelleClasseToolStripMenuItem.Size = new Size(180, 22);
             nouvelleClasseToolStripMenuItem.Text = "Nouvelle Classe";
             nouvelleClasseToolStripMenuItem.Click += nouvelleClasseToolStripMenuItem_Click;
             // 
             // nouvelleItemToolStripMenuItem
             // 
             nouvelleItemToolStripMenuItem.Name = "nouvelleItemToolStripMenuItem";
-            nouvelleItemToolStripMenuItem.Size = new Size(157, 22);
+            nouvelleItemToolStripMenuItem.Size = new Size(180, 22);
             nouvelleItemToolStripMenuItem.Text = "Nouvelle item";
             nouvelleItemToolStripMenuItem.Click += nouvelleItemToolStripMenuItem_Click;
             // 
@@ -201,15 +202,15 @@
             // existingItemToolStripMenuItem
             // 
             existingItemToolStripMenuItem.Name = "existingItemToolStripMenuItem";
-            existingItemToolStripMenuItem.Size = new Size(142, 22);
+            existingItemToolStripMenuItem.Size = new Size(180, 22);
             existingItemToolStripMenuItem.Text = "Item existant";
             existingItemToolStripMenuItem.Click += existingItemToolStripMenuItem_Click;
             // 
             // menuPrincipaleToolStripMenuItem
             // 
             menuPrincipaleToolStripMenuItem.Name = "menuPrincipaleToolStripMenuItem";
-            menuPrincipaleToolStripMenuItem.Size = new Size(105, 20);
-            menuPrincipaleToolStripMenuItem.Text = "Menu principale";
+            menuPrincipaleToolStripMenuItem.Size = new Size(99, 20);
+            menuPrincipaleToolStripMenuItem.Text = "Menu principal";
             menuPrincipaleToolStripMenuItem.Click += menuPrincipaleToolStripMenuItem_Click;
             // 
             // OpenConnPannel
@@ -480,7 +481,7 @@
             // AddEquipWind
             // 
             AddEquipWind.Controls.Add(ButEqui);
-            AddEquipWind.Controls.Add(comboBox1);
+            AddEquipWind.Controls.Add(CBIDClass);
             AddEquipWind.Controls.Add(label15);
             AddEquipWind.Controls.Add(TBprice);
             AddEquipWind.Controls.Add(label14);
@@ -506,13 +507,13 @@
             ButEqui.Text = "Ajouter l'équipement";
             ButEqui.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // CBIDClass
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 285);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(208, 23);
-            comboBox1.TabIndex = 9;
+            CBIDClass.FormattingEnabled = true;
+            CBIDClass.Location = new Point(12, 285);
+            CBIDClass.Name = "CBIDClass";
+            CBIDClass.Size = new Size(208, 23);
+            CBIDClass.TabIndex = 9;
             // 
             // label15
             // 
@@ -589,7 +590,8 @@
             // 
             // AddClassWind
             // 
-            AddClassWind.Controls.Add(button1);
+            AddClassWind.Controls.Add(AddClassWindowLabel);
+            AddClassWind.Controls.Add(ButtonAddNewClass);
             AddClassWind.Controls.Add(TBspecClass);
             AddClassWind.Controls.Add(label10);
             AddClassWind.Controls.Add(TBnameClass);
@@ -604,15 +606,23 @@
             AddClassWind.TabStop = false;
             AddClassWind.Text = "Ajouter une nouvelle classe";
             // 
-            // button1
+            // AddClassWindowLabel
             // 
-            button1.Location = new Point(12, 223);
-            button1.Name = "button1";
-            button1.Size = new Size(220, 85);
-            button1.TabIndex = 7;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            AddClassWindowLabel.AutoSize = true;
+            AddClassWindowLabel.Location = new Point(238, 52);
+            AddClassWindowLabel.Name = "AddClassWindowLabel";
+            AddClassWindowLabel.Size = new Size(0, 15);
+            AddClassWindowLabel.TabIndex = 6;
+            // 
+            // ButtonAddNewClass
+            // 
+            ButtonAddNewClass.Location = new Point(12, 223);
+            ButtonAddNewClass.Name = "ButtonAddNewClass";
+            ButtonAddNewClass.Size = new Size(220, 85);
+            ButtonAddNewClass.TabIndex = 7;
+            ButtonAddNewClass.Text = "Inséré";
+            ButtonAddNewClass.UseVisualStyleBackColor = true;
+            ButtonAddNewClass.Click += ButtonAddNewClass_Click;
             // 
             // TBspecClass
             // 
@@ -781,7 +791,7 @@
         private Label label7;
         private Label label8;
         private Label label11;
-        private Button button1;
+        private Button ButtonAddNewClass;
         private TextBox TBspecClass;
         private Label label10;
         private TextBox TBnameClass;
@@ -795,6 +805,7 @@
         private Label label15;
         private TextBox TBprice;
         private Button ButEqui;
-        private ComboBox comboBox1;
+        private ComboBox CBIDClass;
+        private Label AddClassWindowLabel;
     }
 }

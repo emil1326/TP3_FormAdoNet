@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using System.Diagnostics;
 
 namespace TP3
 {
@@ -18,6 +19,12 @@ namespace TP3
                 
                 using (OracleCommand CMD = new OracleCommand(InsertCMD, OraCon))
                 {
+                    Debug.Print(InsertCMD);
+                    Debug.Print(CMD.CommandText);
+                    Debug.Print(HasActiveConnection.ToString());
+
+                    
+
                     CMD.ExecuteNonQuery();
                     
                     MessageBox.Show("Inséré!");

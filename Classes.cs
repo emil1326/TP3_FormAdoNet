@@ -1,6 +1,5 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System.Data;
-using System.Xml.Linq;
 
 namespace TP3
 {

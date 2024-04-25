@@ -10,6 +10,22 @@ namespace TP3
 
     class ConnectionManager
     {
+
+        public void InsertIntoConn(string InsertCMD)
+        {
+            try
+            {
+                OracleCommand CMD = new OracleCommand(InsertCMD, OraCon);
+             
+                MessageBox.Show("Inséré!");
+            }
+            catch
+            {
+                MessageBox.Show("Erreur lors de l'insertion!");
+            }
+           
+        }
+
         public OracleConnection OraCon = new();
 
         public string AdvancedSettings;

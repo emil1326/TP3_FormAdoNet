@@ -1,3 +1,6 @@
+using Oracle.ManagedDataAccess.Client;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace TP3
 {
     public partial class Form1 : Form
@@ -183,6 +186,30 @@ namespace TP3
         }
 
         #endregion Search
+
+        #region Page ajouter
+        private void TBidClass_TextChanged(object sender, EventArgs e)
+        {
+            TextBox TBidClass = new();
+            TBidClass.MaxLength = 3;
+        }
+
+         private void button1_Click(object sender, EventArgs e)
+        {
+           
+            ConnectionManager connectionManager = new ConnectionManager();
+              
+            string insertData = TBidClass.Text;
+            
+            string insertCMD = "INSERT INTO EQUIPEMENTS (idClasse) VALUES('"+insertData+"') ";
+            OracleCommand CMD = new OracleCommand(insertCMD);
+            
+           
+          
+            connectionManager.InsertIntoConn(insertCMD);
+           
+        }
+        #endregion
 
 
     }

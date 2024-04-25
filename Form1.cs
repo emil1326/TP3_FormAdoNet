@@ -202,16 +202,18 @@ namespace TP3
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
             ConnectionManager connectionManager = new ConnectionManager();
-   
+             
             string insertClassID = TBidClass.Text;
             string insertName = TBnameClass.Text;
             string insertSpec = TBspecClass.Text;
 
-            string insertCMD = $"INSERT INTO EQUIPEMENTS (IDCLASSE,NOMCLASSE,SPECIALISATION) VALUES({insertClassID},{insertName},{insertSpec}) ";
-            OracleCommand CMD = new OracleCommand(insertCMD);
+            string insertCMD = $"INSERT INTO EQUIPEMENTS (IDCLASSE, NOMCLASSE, SPECIALISATION) VALUES({insertClassID}, {insertName}, {insertSpec}) ";
+            
             connectionManager.InsertIntoConn(insertCMD);
+
+            
 
 
         }

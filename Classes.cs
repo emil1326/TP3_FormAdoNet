@@ -15,15 +15,22 @@ namespace TP3
         {
             try
             {
-                OracleCommand CMD = new OracleCommand(InsertCMD, OraCon);
                 
-                MessageBox.Show("Inséré!");
+                using (OracleCommand CMD = new OracleCommand(InsertCMD, OraCon))
+                {
+                    CMD.ExecuteNonQuery();
+                    
+                    MessageBox.Show("Inséré!");
+                  
+                }
+               
             }
             catch
             {
                 MessageBox.Show("Erreur lors de l'insertion!");
+               
             }
-           
+            
         }
 
         public OracleConnection OraCon = new();

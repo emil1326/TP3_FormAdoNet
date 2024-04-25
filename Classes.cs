@@ -12,7 +12,7 @@ namespace TP3
     class ConnectionManager
     {
 
-        public void InsertIntoConn(string InsertCMD)
+        public bool InsertIntoConn(string InsertCMD)
         {
             try
             {
@@ -26,15 +26,15 @@ namespace TP3
                     
 
                     CMD.ExecuteNonQuery();
-                    
-                    MessageBox.Show("Inséré!");
+
+                    return true;
                   
                 }
                
             }
             catch
             {
-                MessageBox.Show("Erreur lors de l'insertion!");
+                return false;
                
             }
             

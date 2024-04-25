@@ -200,27 +200,30 @@ namespace TP3
         {
             TextBox TBspecClass = new();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void ButtonAddNewClass_Click(object sender, EventArgs e)
         {
-            
-            ConnectionManager connectionManager = new ConnectionManager();
-             
+
+
+
             string insertClassID = TBidClass.Text;
             string insertName = TBnameClass.Text;
             string insertSpec = TBspecClass.Text;
 
-            string insertCMD = $"INSERT INTO EQUIPEMENTS (IDCLASSE, NOMCLASSE, SPECIALISATION) VALUES({insertClassID}, {insertName}, {insertSpec}) ";
-            
-            connectionManager.InsertIntoConn(insertCMD);
+            string insertCMD = $"INSERT INTO CLASSES (IDCLASSE, NOMCLASSE, SPECIALISATION) VALUES ('{insertClassID}', '{insertName}', '{insertSpec}') ";
 
-            
+            if(Conn.InsertIntoConn(insertCMD))
+            {
+                AddClassWindowLabel.Text = "Inséré!";
+            }
+            else
+            {
+                AddClassWindowLabel.Text = "Erreur";
+            }
+
+
 
 
         }
         #endregion
-
-
-
-
     }
 }

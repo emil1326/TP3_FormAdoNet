@@ -94,6 +94,7 @@
             label7 = new Label();
             HelloWind = new GroupBox();
             label3 = new Label();
+            AddEquiLabel = new Label();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
@@ -480,6 +481,7 @@
             // 
             // AddEquipWind
             // 
+            AddEquipWind.Controls.Add(AddEquiLabel);
             AddEquipWind.Controls.Add(ButEqui);
             AddEquipWind.Controls.Add(CBIDClass);
             AddEquipWind.Controls.Add(label15);
@@ -506,6 +508,7 @@
             ButEqui.TabIndex = 10;
             ButEqui.Text = "Ajouter l'équipement";
             ButEqui.UseVisualStyleBackColor = true;
+            ButEqui.Click += ButEqui_Click;
             // 
             // CBIDClass
             // 
@@ -704,16 +707,24 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
+            // AddEquiLabel
+            // 
+            AddEquiLabel.AutoSize = true;
+            AddEquiLabel.Location = new Point(238, 60);
+            AddEquiLabel.Name = "AddEquiLabel";
+            AddEquiLabel.Size = new Size(0, 15);
+            AddEquiLabel.TabIndex = 11;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(AddEquipWind);
             Controls.Add(MyMainMenuStrip);
             Controls.Add(OpenConnPannel);
             Controls.Add(ResearchPannel);
             Controls.Add(AddClassWind);
-            Controls.Add(AddEquipWind);
             Controls.Add(HelloWind);
             Controls.Add(ModExistingItemWind);
             Name = "Form1";
@@ -809,5 +820,6 @@
         private Button ButEqui;
         private ComboBox CBIDClass;
         private Label AddClassWindowLabel;
+        private Label AddEquiLabel;
     }
 }

@@ -202,5 +202,23 @@ namespace TP3
         }
 
         #endregion
+
+        private void ButEqui_Click(object sender, EventArgs e)
+        {
+            string insertEquiID = TBidEqui.Text.Trim();
+            string insertEquiName = TBnameEqui.Text.Trim(); 
+            string insertQual = TBqualite.Text.Trim();
+            string insertPrice = TBprice.Text.Trim();
+
+
+
+            string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}' ";
+            
+            if (Conn.InsertIntoConn(insertCMD))
+                AddEquiLabel.Text = "Inséré!";
+            else
+                AddEquiLabel.Text = "Erreur";
+
+        }
     }
 }

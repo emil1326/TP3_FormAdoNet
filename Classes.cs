@@ -80,7 +80,27 @@ namespace TP3
             catch { return false; }
 
         }
+        public bool ComboBoxDataEqui(string ComboBoxData)
+        {
+            using (OracleCommand ReadCMD = new(ComboBoxData, OraCon))
+            {
+                try
+                {
+                    ReadCMD.ExecuteScalar().ToString();
+                }
+                catch { return false; }
+
+                using (OracleDataReader reader = ReadCMD.ExecuteReader())
+                {
+
+                    return reader.Read();
+                }
+            }
+
+        }
+
     }
+
 
     class SearchRes
     {

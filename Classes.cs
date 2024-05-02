@@ -78,27 +78,61 @@ namespace TP3
                 }
             }
             catch { return false; }
-
         }
-        public bool ComboBoxDataEqui(string ComboBoxData)
+
+        public (List<string>, bool Passed) GetAllClasses()
         {
-            using (OracleCommand ReadCMD = new(ComboBoxData, OraCon))
+            List<string> classes = [];
+            using (OracleCommand ReadCMD = new("select nomclasse from classes", OraCon))
             {
-                try
+                try //test
                 {
                     ReadCMD.ExecuteScalar().ToString();
                 }
-                catch { return false; }
+                catch { return (null, false); }
 
-                using (OracleDataReader reader = ReadCMD.ExecuteReader())
+                try
                 {
-
-                    return reader.Read();
+                    using (OracleDataReader reader = ReadCMD.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            classes.Add(reader.GetString(0));
+                        }
+                    }
                 }
+                catch { return (classes, false); }
             }
 
+            return (classes, true);
         }
 
+        public (List<string>, bool Passed) GetAllSpecialisations(string Class)
+        {
+            List<string> Specialisations = [];
+            using (OracleCommand ReadCMD = new($"select SPECIALISATION from CLASSES where nomclasse='{Class}'", OraCon))
+            {
+                try //test
+                {
+                    ReadCMD.ExecuteScalar().ToString();
+                }
+                catch { return (null, false); }
+
+                try
+                {
+                    using (OracleDataReader reader = ReadCMD.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Specialisations.Add(reader.GetString(0));
+                        }
+                    }
+                }
+                catch { return (Specialisations, false); }
+            }
+
+            return (Specialisations, true);
+        }
     }
 
 

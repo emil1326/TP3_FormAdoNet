@@ -1,5 +1,3 @@
-using Oracle.ManagedDataAccess.Client;
-
 namespace TP3
 {
     public partial class Form1 : Form
@@ -51,6 +49,7 @@ namespace TP3
 
         private void NouvelleItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            InitCBAddEqui();
             SwitchToPage(6);
         }
 
@@ -205,25 +204,63 @@ namespace TP3
 
         #endregion
 
+        void InitCBAddEqui()
+        {
+            (List<string> classes, bool Passed) = Conn.GetAllClasses();
+
+            if (Passed)
+                ClasSelPassed.Text = "Passed";
+            else
+            {
+                ClasSelPassed.Text = "Err";
+                return;
+            }
+
+            AddEquipClassCB.Items.Clear();
+
+            for (int i = 0; i < classes.Count; i++)
+                AddEquipClassCB.Items.Add(classes[i]);
+        }
+
+        void InitCBAddSpec()
+        {
+            (List<string> Specialisations, bool Passed) = Conn.GetAllSpecialisations(AddEquipClassCB.SelectedItem.ToString());
+
+            if (Passed)
+                SpecSelPass.Text = "Passed";
+            else
+            {
+                SpecSelPass.Text = "Err";
+                return;
+            }
+
+            AddEquipSpecCB.Items.Clear();
+
+            for(int i = 0;i < Specialisations.Count;i++)
+                AddEquipSpecCB.Items.Add(Specialisations[i]);
+        }
+
         private void ButEqui_Click(object sender, EventArgs e)
         {
-            string insertEquiID = TBidEqui.Text.Trim();
-            string insertEquiName = TBnameEqui.Text.Trim(); 
+            string insertEquiName = TBnameEqui.Text.Trim();
             string insertQual = TBqualite.Text.Trim();
             string insertPrice = TBprice.Text.Trim();
-            string comboBoxData = CBIDClass.Text.Trim();
 
 
-                string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}' ";
-             comboBoxData = "SELECT IDCLASSE FROM CLASSES";
-            Conn.ComboBoxDataEqui(comboBoxData);
-           
-            
+            string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE, idclasse) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}', (select idclasse where {nomclasse}) ";
+
+
+
             if (Conn.InsertIntoConn(insertCMD))
                 AddEquiLabel.Text = "Inséré!";
             else
                 AddEquiLabel.Text = "Erreur";
 
+        }
+
+        private void AddEquipClassCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitCBAddSpec();
         }
     }
 }

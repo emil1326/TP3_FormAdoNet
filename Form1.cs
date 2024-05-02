@@ -217,8 +217,8 @@ namespace TP3
                 string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}' ";
              comboBoxData = "SELECT IDCLASSE FROM CLASSES";
             Conn.ComboBoxDataEqui(comboBoxData);
-            CBIDClass.Items.Add(comboBoxData.ToString());
-
+           
+            
             if (Conn.InsertIntoConn(insertCMD))
                 AddEquiLabel.Text = "Inséré!";
             else

@@ -40,8 +40,6 @@
             ajouterToolStripMenuItem = new ToolStripMenuItem();
             nouvelleClasseToolStripMenuItem = new ToolStripMenuItem();
             nouvelleItemToolStripMenuItem = new ToolStripMenuItem();
-            modifyToolStripMenuItem = new ToolStripMenuItem();
-            existingItemToolStripMenuItem = new ToolStripMenuItem();
             menuPrincipaleToolStripMenuItem = new ToolStripMenuItem();
             OpenConnPannel = new GroupBox();
             ConnectionResult = new Label();
@@ -69,8 +67,8 @@
             label4 = new Label();
             SearchByTypeCB = new ComboBox();
             SearchBar = new TextBox();
-            ModExistingItemWind = new GroupBox();
             AddEquipWind = new GroupBox();
+            CBErrLabel = new Label();
             SpecSelPass = new Label();
             ClasSelPassed = new Label();
             AddEquipSpecCB = new ComboBox();
@@ -111,7 +109,7 @@
             // 
             // MyMainMenuStrip
             // 
-            MyMainMenuStrip.Items.AddRange(new ToolStripItem[] { connectionToolStripMenuItem, rechercheToolStripMenuItem, ajouterToolStripMenuItem, modifyToolStripMenuItem, menuPrincipaleToolStripMenuItem });
+            MyMainMenuStrip.Items.AddRange(new ToolStripItem[] { connectionToolStripMenuItem, rechercheToolStripMenuItem, ajouterToolStripMenuItem, menuPrincipaleToolStripMenuItem });
             MyMainMenuStrip.Location = new Point(0, 0);
             MyMainMenuStrip.Name = "MyMainMenuStrip";
             MyMainMenuStrip.Size = new Size(800, 24);
@@ -184,30 +182,16 @@
             // nouvelleClasseToolStripMenuItem
             // 
             nouvelleClasseToolStripMenuItem.Name = "nouvelleClasseToolStripMenuItem";
-            nouvelleClasseToolStripMenuItem.Size = new Size(157, 22);
+            nouvelleClasseToolStripMenuItem.Size = new Size(180, 22);
             nouvelleClasseToolStripMenuItem.Text = "Nouvelle Classe";
             nouvelleClasseToolStripMenuItem.Click += NouvelleClasseToolStripMenuItem_Click;
             // 
             // nouvelleItemToolStripMenuItem
             // 
             nouvelleItemToolStripMenuItem.Name = "nouvelleItemToolStripMenuItem";
-            nouvelleItemToolStripMenuItem.Size = new Size(157, 22);
+            nouvelleItemToolStripMenuItem.Size = new Size(180, 22);
             nouvelleItemToolStripMenuItem.Text = "Nouvelle item";
             nouvelleItemToolStripMenuItem.Click += NouvelleItemToolStripMenuItem_Click;
-            // 
-            // modifyToolStripMenuItem
-            // 
-            modifyToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { existingItemToolStripMenuItem });
-            modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            modifyToolStripMenuItem.Size = new Size(57, 20);
-            modifyToolStripMenuItem.Text = "Modify";
-            // 
-            // existingItemToolStripMenuItem
-            // 
-            existingItemToolStripMenuItem.Name = "existingItemToolStripMenuItem";
-            existingItemToolStripMenuItem.Size = new Size(142, 22);
-            existingItemToolStripMenuItem.Text = "Item existant";
-            existingItemToolStripMenuItem.Click += ExistingItemToolStripMenuItem_Click;
             // 
             // menuPrincipaleToolStripMenuItem
             // 
@@ -472,17 +456,9 @@
             SearchBar.Size = new Size(486, 23);
             SearchBar.TabIndex = 0;
             // 
-            // ModExistingItemWind
-            // 
-            ModExistingItemWind.Location = new Point(12, 27);
-            ModExistingItemWind.Name = "ModExistingItemWind";
-            ModExistingItemWind.Size = new Size(776, 411);
-            ModExistingItemWind.TabIndex = 0;
-            ModExistingItemWind.TabStop = false;
-            ModExistingItemWind.Text = "Modifier un item existant";
-            // 
             // AddEquipWind
             // 
+            AddEquipWind.Controls.Add(CBErrLabel);
             AddEquipWind.Controls.Add(SpecSelPass);
             AddEquipWind.Controls.Add(ClasSelPassed);
             AddEquipWind.Controls.Add(AddEquipSpecCB);
@@ -503,6 +479,14 @@
             AddEquipWind.TabIndex = 0;
             AddEquipWind.TabStop = false;
             AddEquipWind.Text = "Ajouter un equipement";
+            // 
+            // CBErrLabel
+            // 
+            CBErrLabel.AutoSize = true;
+            CBErrLabel.Location = new Point(220, 276);
+            CBErrLabel.Name = "CBErrLabel";
+            CBErrLabel.Size = new Size(0, 15);
+            CBErrLabel.TabIndex = 16;
             // 
             // SpecSelPass
             // 
@@ -748,7 +732,6 @@
             Controls.Add(ResearchPannel);
             Controls.Add(OpenConnPannel);
             Controls.Add(HelloWind);
-            Controls.Add(ModExistingItemWind);
             Name = "Form1";
             Text = "E&M Equipement Manager";
             MyMainMenuStrip.ResumeLayout(false);
@@ -790,7 +773,6 @@
         private ToolStripMenuItem qualiterToolStripMenuItem;
         private GroupBox OpenConnPannel;
         private GroupBox ResearchPannel;
-        private GroupBox ModExistingItemWind;
         private GroupBox AddEquipWind;
         private GroupBox AddClassWind;
         private GroupBox groupBox1;
@@ -807,8 +789,6 @@
         private GroupBox HelloWind;
         private Label label3;
         private Label ConnectionResult;
-        private ToolStripMenuItem modifyToolStripMenuItem;
-        private ToolStripMenuItem existingItemToolStripMenuItem;
         private GroupBox FilterByGB;
         private TextBox SearchBar;
         private ComboBox SearchByTypeCB;
@@ -845,5 +825,6 @@
         private Label label11;
         private Label SpecSelPass;
         private Label ClasSelPassed;
+        private Label CBErrLabel;
     }
 }

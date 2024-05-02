@@ -58,11 +58,6 @@ namespace TP3
             SwitchToPage(7);
         }
 
-        private void ExistingItemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SwitchToPage(8);
-        }
-
         void SwitchToPage(int Page)
         {
             Page--;
@@ -76,7 +71,6 @@ namespace TP3
                 AddClassWind,
                 AddEquipWind,
                 HelloWind,
-                ModExistingItemWind,
             ];
             foreach (GroupBox GB in Pages)
                 GB.Visible = false;
@@ -236,7 +230,7 @@ namespace TP3
 
             AddEquipSpecCB.Items.Clear();
 
-            for(int i = 0;i < Specialisations.Count;i++)
+            for (int i = 0; i < Specialisations.Count; i++)
                 AddEquipSpecCB.Items.Add(Specialisations[i]);
         }
 
@@ -246,9 +240,26 @@ namespace TP3
             string insertQual = TBqualite.Text.Trim();
             string insertPrice = TBprice.Text.Trim();
 
+            string insertClassName;
+            string insertSpecName;
 
-            string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE, idclasse) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}', (select idclasse where {nomclasse}) ";
+            try
+            {
+                insertClassName = AddEquipClassCB.SelectedItem.ToString().Trim();
+                insertSpecName = AddEquipSpecCB.SelectedItem.ToString().Trim();
+            }
+            catch
+            {
+                CBErrLabel.Text = "ComboBox a pas une selection active (reselectioner svp)";
+                return;
+            }
 
+            string insertCMD;
+
+            if (string.IsNullOrEmpty(insertSpecName))
+                insertCMD = $"INSERT INTO EQUIPEMENTS (IDEQUIPEMENT, NOMEQUIPEMENT, QUALITE, PRIXDEBASE, IDCLASSE) VALUES ((SELECT MAX(IDEQUIPEMENT) + 1 FROM EQUIPEMENTS), '{insertEquiName}' , {insertQual} , {insertPrice}, (SELECT IDCLASSE FROM CLASSES WHERE NOMCLASSE = '{insertClassName}'))";
+            else
+                insertCMD = $"INSERT INTO EQUIPEMENTS (IDEQUIPEMENT, NOMEQUIPEMENT, QUALITE, PRIXDEBASE, IDCLASSE) VALUES ((SELECT MAX(IDEQUIPEMENT) + 1 FROM EQUIPEMENTS), '{insertEquiName}' , {insertQual} , {insertPrice}, (SELECT IDCLASSE FROM CLASSES WHERE NOMCLASSE = '{insertClassName}'  AND SPECIALISATION = '{insertSpecName}'))";
 
 
             if (Conn.InsertIntoConn(insertCMD))

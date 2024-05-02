@@ -80,23 +80,68 @@ namespace TP3
             catch { return false; }
 
         }
-        public bool ComboBoxDataEqui(string ComboBoxData)
+
+        public (List<string>, bool Passed) GetAllClasses()
         {
-            using (OracleCommand ReadCMD = new(ComboBoxData, OraCon))
+            using (OracleCommand ReadCMD = new(CMD, OraCon))
             {
                 try
                 {
                     ReadCMD.ExecuteScalar().ToString();
                 }
-                catch { return false; }
+                catch { return (null, false); }
 
                 using (OracleDataReader reader = ReadCMD.ExecuteReader())
                 {
-
-                    return reader.Read();
+                    
                 }
             }
+            try
+            {
+                while (R.Read())
+                {
+                    string S2 = R.GetString(0);
+                    string S1 = R.GetString(1);
+                    int S3 = R.GetInt32(2);
+                    float S4 = R.GetFloat(3);
+                    string S5;
+                    try
+                    {
+                        S5 = R.GetString(4);
+                    }
+                    catch
+                    {
+                        S5 = "Empty";
+                    }
 
+                    AddNewLine(S1, S2, S3, S4, S5);
+                }
+            }
+            catch { return false; }
+
+
+
+            return null;
+        }
+
+        public int GetComboBoxLength(string Command)
+        {
+            try
+            {
+                using (OracleCommand CMD = new())
+            }
+        }
+        public string[] GetAllComboBoxItems(string Command)
+        {
+            int length = GetComboBoxLength(Command);
+            string[] items = new string[length];
+            for (int i = 0; i < length; i++)
+                items[i] = GetComboBoxItem(Command);
+            return items;
+        }
+        public string GetComboBoxItem(string Command)
+        {
+            return "";
         }
 
     }

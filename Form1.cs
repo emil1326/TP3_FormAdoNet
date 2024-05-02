@@ -1,5 +1,3 @@
-using Oracle.ManagedDataAccess.Client;
-
 namespace TP3
 {
     public partial class Form1 : Form
@@ -51,6 +49,7 @@ namespace TP3
 
         private void NouvelleItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            InitCBAddEqui();
             SwitchToPage(6);
         }
 
@@ -205,19 +204,26 @@ namespace TP3
 
         #endregion
 
+        void InitCBAddEqui()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                SR
+                AddEquipClassCB.Items.Add();
+            }
+        }
+
         private void ButEqui_Click(object sender, EventArgs e)
         {
-            string insertEquiID = TBidEqui.Text.Trim();
-            string insertEquiName = TBnameEqui.Text.Trim(); 
+            string insertEquiName = TBnameEqui.Text.Trim();
             string insertQual = TBqualite.Text.Trim();
             string insertPrice = TBprice.Text.Trim();
-            string comboBoxData = CBIDClass.Text.Trim();
+            string comboBoxData = AddEquipClassCB.Text.Trim();
 
 
-                string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}' ";
-             comboBoxData = "SELECT IDCLASSE FROM CLASSES";
-            Conn.ComboBoxDataEqui(comboBoxData);
-            CBIDClass.Items.Add(comboBoxData.ToString());
+            string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}' ";
+
+
 
             if (Conn.InsertIntoConn(insertCMD))
                 AddEquiLabel.Text = "Inséré!";

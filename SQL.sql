@@ -516,7 +516,7 @@ WHERE
 ORDER BY
     PRIXDEBASE ASC;
 
-    SELECT
+SELECT
     NOMCLASSE,
     NOMEQUIPEMENT,
     QUALITE,
@@ -546,7 +546,7 @@ WHERE
 ORDER BY
     QUALITE ASC;
 
-    SELECT
+SELECT
     NOMCLASSE,
     NOMEQUIPEMENT,
     QUALITE,
@@ -560,6 +560,7 @@ WHERE
     QUALITE=20
 ORDER BY
     QUALITE DESC;
+
 --research mode no.3
 
 --research by  the name or the starting of the names of an Equipements
@@ -589,4 +590,17 @@ FROM
 GROUP BY
     NOMCLASSE;
 
-    INSERT INTO CLASSES (IDCLASSE, NOMCLASSE, SPECIALISATION) VALUES ('GGG','test1','testing');
+INSERT INTO CLASSES (
+    IDCLASSE,
+    NOMCLASSE,
+    SPECIALISATION
+) VALUES (
+    'GGG',
+    'test1',
+    'testing'
+);
+
+select nomclasse from classes;
+select SPECIALISATION from CLASSES
+where nomclasse='Guerrier';
+

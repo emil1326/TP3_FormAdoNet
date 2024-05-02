@@ -78,72 +78,61 @@ namespace TP3
                 }
             }
             catch { return false; }
-
         }
 
         public (List<string>, bool Passed) GetAllClasses()
         {
-            using (OracleCommand ReadCMD = new(CMD, OraCon))
+            List<string> classes = [];
+            using (OracleCommand ReadCMD = new("select nomclasse from classes", OraCon))
             {
-                try
+                try //test
                 {
                     ReadCMD.ExecuteScalar().ToString();
                 }
                 catch { return (null, false); }
 
-                using (OracleDataReader reader = ReadCMD.ExecuteReader())
+                try
                 {
-                    
+                    using (OracleDataReader reader = ReadCMD.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            classes.Add(reader.GetString(0));
+                        }
+                    }
                 }
+                catch { return (classes, false); }
             }
-            try
+
+            return (classes, true);
+        }
+
+        public (List<string>, bool Passed) GetAllSpecialisations(string Class)
+        {
+            List<string> Specialisations = [];
+            using (OracleCommand ReadCMD = new($"select SPECIALISATION from CLASSES where nomclasse='{Class}'", OraCon))
             {
-                while (R.Read())
+                try //test
                 {
-                    string S2 = R.GetString(0);
-                    string S1 = R.GetString(1);
-                    int S3 = R.GetInt32(2);
-                    float S4 = R.GetFloat(3);
-                    string S5;
-                    try
-                    {
-                        S5 = R.GetString(4);
-                    }
-                    catch
-                    {
-                        S5 = "Empty";
-                    }
-
-                    AddNewLine(S1, S2, S3, S4, S5);
+                    ReadCMD.ExecuteScalar().ToString();
                 }
+                catch { return (null, false); }
+
+                try
+                {
+                    using (OracleDataReader reader = ReadCMD.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Specialisations.Add(reader.GetString(0));
+                        }
+                    }
+                }
+                catch { return (Specialisations, false); }
             }
-            catch { return false; }
 
-
-
-            return null;
+            return (Specialisations, true);
         }
-
-        public int GetComboBoxLength(string Command)
-        {
-            try
-            {
-                using (OracleCommand CMD = new())
-            }
-        }
-        public string[] GetAllComboBoxItems(string Command)
-        {
-            int length = GetComboBoxLength(Command);
-            string[] items = new string[length];
-            for (int i = 0; i < length; i++)
-                items[i] = GetComboBoxItem(Command);
-            return items;
-        }
-        public string GetComboBoxItem(string Command)
-        {
-            return "";
-        }
-
     }
 
 

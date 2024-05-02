@@ -206,11 +206,38 @@ namespace TP3
 
         void InitCBAddEqui()
         {
-            for (int i = 0; i < 10; i++)
+            (List<string> classes, bool Passed) = Conn.GetAllClasses();
+
+            if (Passed)
+                ClasSelPassed.Text = "Passed";
+            else
             {
-                SR
-                AddEquipClassCB.Items.Add();
+                ClasSelPassed.Text = "Err";
+                return;
             }
+
+            AddEquipClassCB.Items.Clear();
+
+            for (int i = 0; i < classes.Count; i++)
+                AddEquipClassCB.Items.Add(classes[i]);
+        }
+
+        void InitCBAddSpec()
+        {
+            (List<string> Specialisations, bool Passed) = Conn.GetAllSpecialisations(AddEquipClassCB.SelectedItem.ToString());
+
+            if (Passed)
+                SpecSelPass.Text = "Passed";
+            else
+            {
+                SpecSelPass.Text = "Err";
+                return;
+            }
+
+            AddEquipSpecCB.Items.Clear();
+
+            for(int i = 0;i < Specialisations.Count;i++)
+                AddEquipSpecCB.Items.Add(Specialisations[i]);
         }
 
         private void ButEqui_Click(object sender, EventArgs e)
@@ -218,10 +245,9 @@ namespace TP3
             string insertEquiName = TBnameEqui.Text.Trim();
             string insertQual = TBqualite.Text.Trim();
             string insertPrice = TBprice.Text.Trim();
-            string comboBoxData = AddEquipClassCB.Text.Trim();
 
 
-            string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}' ";
+            string insertCMD = $"INSERT INTO EQUIPEMENTS (NOMEQUIPEMENT, QUALITE, PRIXDEBASE, idclasse) VALUES ('{insertEquiName}', '{insertQual}', '{insertPrice}', (select idclasse where {nomclasse}) ";
 
 
 
@@ -230,6 +256,11 @@ namespace TP3
             else
                 AddEquiLabel.Text = "Erreur";
 
+        }
+
+        private void AddEquipClassCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitCBAddSpec();
         }
     }
 }

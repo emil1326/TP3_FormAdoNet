@@ -71,6 +71,10 @@
             SearchBar = new TextBox();
             ModExistingItemWind = new GroupBox();
             AddEquipWind = new GroupBox();
+            SpecSelPass = new Label();
+            ClasSelPassed = new Label();
+            AddEquipSpecCB = new ComboBox();
+            label11 = new Label();
             AddEquiLabel = new Label();
             ButEqui = new Button();
             AddEquipClassCB = new ComboBox();
@@ -93,8 +97,6 @@
             label7 = new Label();
             HelloWind = new GroupBox();
             label3 = new Label();
-            label11 = new Label();
-            AddEquipSpecCB = new ComboBox();
             MyMainMenuStrip.SuspendLayout();
             OpenConnPannel.SuspendLayout();
             AdvancedOptions.SuspendLayout();
@@ -481,6 +483,8 @@
             // 
             // AddEquipWind
             // 
+            AddEquipWind.Controls.Add(SpecSelPass);
+            AddEquipWind.Controls.Add(ClasSelPassed);
             AddEquipWind.Controls.Add(AddEquipSpecCB);
             AddEquipWind.Controls.Add(label11);
             AddEquipWind.Controls.Add(AddEquiLabel);
@@ -499,6 +503,39 @@
             AddEquipWind.TabIndex = 0;
             AddEquipWind.TabStop = false;
             AddEquipWind.Text = "Ajouter un equipement";
+            // 
+            // SpecSelPass
+            // 
+            SpecSelPass.AutoSize = true;
+            SpecSelPass.Location = new Point(220, 244);
+            SpecSelPass.Name = "SpecSelPass";
+            SpecSelPass.Size = new Size(0, 15);
+            SpecSelPass.TabIndex = 15;
+            // 
+            // ClasSelPassed
+            // 
+            ClasSelPassed.AutoSize = true;
+            ClasSelPassed.Location = new Point(220, 199);
+            ClasSelPassed.Name = "ClasSelPassed";
+            ClasSelPassed.Size = new Size(0, 15);
+            ClasSelPassed.TabIndex = 14;
+            // 
+            // AddEquipSpecCB
+            // 
+            AddEquipSpecCB.FormattingEnabled = true;
+            AddEquipSpecCB.Location = new Point(6, 241);
+            AddEquipSpecCB.Name = "AddEquipSpecCB";
+            AddEquipSpecCB.Size = new Size(208, 23);
+            AddEquipSpecCB.TabIndex = 13;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(13, 223);
+            label11.Name = "label11";
+            label11.Size = new Size(79, 15);
+            label11.TabIndex = 12;
+            label11.Text = "Specialisation";
             // 
             // AddEquiLabel
             // 
@@ -525,6 +562,7 @@
             AddEquipClassCB.Name = "AddEquipClassCB";
             AddEquipClassCB.Size = new Size(208, 23);
             AddEquipClassCB.TabIndex = 9;
+            AddEquipClassCB.SelectedIndexChanged += AddEquipClassCB_SelectedIndexChanged;
             // 
             // label15
             // 
@@ -699,23 +737,6 @@
             label3.TabIndex = 0;
             label3.Text = "Bienvenue dans E&&M equipement manager\r\nvotre inventaire dequipements divers!\r\n";
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(13, 223);
-            label11.Name = "label11";
-            label11.Size = new Size(79, 15);
-            label11.TabIndex = 12;
-            label11.Text = "Specialisation";
-            // 
-            // AddEquipSpecCB
-            // 
-            AddEquipSpecCB.FormattingEnabled = true;
-            AddEquipSpecCB.Location = new Point(6, 241);
-            AddEquipSpecCB.Name = "AddEquipSpecCB";
-            AddEquipSpecCB.Size = new Size(208, 23);
-            AddEquipSpecCB.TabIndex = 13;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -822,5 +843,7 @@
         private Label AddEquiLabel;
         private ComboBox AddEquipSpecCB;
         private Label label11;
+        private Label SpecSelPass;
+        private Label ClasSelPassed;
     }
 }
